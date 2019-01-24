@@ -20,100 +20,87 @@ export const navItems = [
       {
         name: 'Setup-Cashier',
         url: '/cashofficemaster/setupcashier',
-        icon: 'icon-puzzle'
+        icon: 'icon-star'
       },
       {
         name: 'Setup-PaymentMethod',
         url: '/cashofficemaster/setuppaymentmethod',
-        icon: 'icon-puzzle'
+        icon: 'icon-star'
       },
       {
         name: 'Setup-Applications',
         url: '/cashofficemaster/setupapplications',
-        icon: 'icon-puzzle'
+        icon: 'icon-star'
       },
       {
         name: 'Setup-CashOffice',
         url: '/cashofficemaster/setupcashoffice',
-        icon: 'icon-puzzle'
+        icon: 'icon-star'
       },
       {
         name: 'Assign-Cashier',
         url: '/cashofficemaster/assigncashier',
-        icon: 'icon-puzzle'
+        icon: 'icon-star'
+      }      
+    ]
+  },  
+  {
+    name: 'CashOfficeReports',
+    url: '/cashofficereports',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Cashier-Assignment',
+        url: '/cashofficereports/cashier-assignment',
+        icon: 'icon-star'
       },
       {
-        name: 'Carousels',
-        url: '/cashofficemaster/carousels',
-        icon: 'icon-puzzle'
+        name: 'Collection-Branch',  //Name of the menu item
+        url: '/cashofficereports/collection-branch', //url at url bar
+        icon: 'icon-star'
       },
       {
-        name: 'Collapses',
-        url: '/cashofficemaster/collapses',
-        icon: 'icon-puzzle'
+        name: 'Collection-App-Detail',
+        url: '/cashofficereports/collection-app-detail',
+        icon: 'icon-star'
       },
       {
-        name: 'Forms',
-        url: '/cashofficemaster/forms',
-        icon: 'icon-puzzle'
+        name: 'Collection-App-Summary',
+        url: '/cashofficereports/collection-app-summary',
+        icon: 'icon-star'
       },
       {
-        name: 'Pagination',
-        url: '/cashofficemaster/paginations',
-        icon: 'icon-puzzle'
+        name: 'Receipt-Listing',
+        url: '/cashofficereports/receipt-listing',
+        icon: 'icon-star'
       },
       {
-        name: 'Popovers',
-        url: '/cashofficemaster/popovers',
-        icon: 'icon-puzzle'
+        name: 'Deposit-Slip',
+        url: '/cashofficereports/deposit-slip',
+        icon: 'icon-star'
       },
       {
-        name: 'Progress',
-        url: '/cashofficemaster/progress',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Switches',
-        url: '/cashofficemaster/switches',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tables',
-        url: '/cashofficemaster/tables',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tabs',
-        url: '/cashofficemaster/tabs',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tooltips',
-        url: '/cashofficemaster/tooltips',
-        icon: 'icon-puzzle'
-      }
+        name: 'Reprint-Receipt',
+        url: '/cashofficereports/reprint-receipt',
+        icon: 'icon-star'
+      }       
     ]
   },
   {
-    name: 'Buttons',
-    url: '/buttons',
-    icon: 'icon-cursor',
+    name: 'Pay Point Master',
+    url: '/paypointmaster',
+    icon: 'icon-puzzle',
     children: [
       {
-        name: 'Buttons',
-        url: '/buttons/buttons',
-        icon: 'icon-cursor'
+        name: 'Debit File Template Assignment',
+        url: '/paypointmaster/debit-file-template-assignment',
+        icon: 'icon-star'        
       },
       {
-        name: 'Dropdowns',
-        url: '/buttons/dropdowns',
-        icon: 'icon-cursor'
-      },
-      {
-        name: 'Brand Buttons',
-        url: '/buttons/brand-buttons',
-        icon: 'icon-cursor'
-      }
+        name: 'File Designer',
+        url: '/paypointmaster/filedesigner',
+        icon: 'icon-star'
+      }      
     ]
   },
   {
