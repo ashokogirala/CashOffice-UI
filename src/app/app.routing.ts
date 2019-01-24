@@ -55,8 +55,12 @@ export const routes: Routes = [
         loadChildren: './views/cashofficemaster/cashofficemaster.module#CashOfficeMasterModule'
       },
       {
-        path: 'buttons',
-        loadChildren: './views/buttons/buttons.module#ButtonsModule'
+        path: 'cashofficereports',
+        loadChildren: './views/cashofficereports/cash-office-reports.module#CashOfficeReportsModule'
+      },
+      {
+        path: 'paypointmaster',
+        loadChildren: './views/paypointmaster/paypointmaster.module#PaypointMasterModule'
       },
       {
         path: 'charts',
