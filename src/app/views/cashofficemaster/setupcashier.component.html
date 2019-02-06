@@ -15,27 +15,26 @@
                 <th>Cashier loginId</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let cashier of pagedItems">
               <tr>
-                <td>Aulus Agmundr</td>
-                <td>2012/01/21</td>
-                <td>Staff</td>
-                <td>
-                  <span class="badge badge-success">Active</span>
-                </td>
+                <td>{{cashier.cashierCode}}</td>
+                <td>{{cashier.cashierName}}</td>
+                <td>{{cashier.branchName}}</td>
+                <td>{{cashier.loginId}}</td>
               </tr>
             </tbody>
           </table>
           <nav>
             <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item active">
+                <a class="page-link" (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -43,7 +42,7 @@
     </div>
   </div>
   <!--from start-->
-  <form novalidate action="" method="post" [formGroup]="createCashier" (ngSubmit)="onSubmit(createCashier)" >
+  <form action="" method="post" [formGroup]="createCashier" (ngSubmit)="onSubmit(createCashier)">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
@@ -54,41 +53,37 @@
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="text-input">Cashier Code:</label>
               <div class="col-md-3">
-                <input type="text" class="form-control" formControlName="cashierCode" placeholder="Cashier Code" >
+                <input type="text" class="form-control" formControlName="cashierCode" required>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="text-input">Cashier Name:</label>
               <div class="col-md-3">
-                <input type="text" class="form-control" formControlName="cashierName" placeholder="Text">
+                <input type="text" class="form-control" formControlName="cashierName" required>
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="select1">Login Id:</label>
+              <label class="col-md-3 col-form-label" for="text-input">Login Id:</label>
               <div class="col-md-3">
-                <select id="select1" formControlName="loginId" class="form-control">
-                  <option value="0">Please select</option>
-                  <option value="1">Option #1</option>
-                  <option value="2">Option #2</option>
-                  <option value="3">Option #3</option>
+                <select class="custom-select" formControlName="loginId" required>
+                  <option selected="selected">Please Select</option>
+                  <option *ngFor="let login of users" [value]="login.username">{{login.username}}</option>
                 </select>
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="select1">Branch Code:</label>
+              <label class="col-md-3 col-form-label" for="select">Branch Code:</label>
               <div class="col-md-3">
-                <select id="select1" formControlName="branchCode" class="form-control">
-                  <option value="0">Please select</option>
-                  <option value="1">Option #1</option>
-                  <option value="2">Option #2</option>
-                  <option value="3">Option #3</option>
+                <select class="custom-select" formControlName="branchCode" (change)="updateBranchName($event)" required>
+                  <option selected="selected">Please Select</option>
+                  <option *ngFor="let br of allBranches" [value]="br.abbrName">{{br.abbrName}}</option>
                 </select>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="disabled-input">Branch Name:</label>
               <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="Disabled" formControlName="branchName">
+                <input type="text" class="form-control" formControlName="branchName" readonly>
               </div>
             </div>
           </div>
@@ -103,10 +98,10 @@
                 <button type="submit" class="btn btn-md btn-primary">Find</button>
               </div>
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary ">Clear</button>
+                <button type="button" class="btn btn-md btn-primary" (click)="clear()">Clear</button>
               </div>
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary ">Exit</button>
+                <a href="#"><button type="button" class="btn btn-md btn-primary">Exit</button></a>
               </div>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: 'tables.component.html'
+  templateUrl: 'assign-role.component.html'
 })
-export class TablesComponent {
+export class AssignRoleComponent {
 
   constructor() { }
 

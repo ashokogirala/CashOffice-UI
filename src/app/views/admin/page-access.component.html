@@ -1,0 +1,151 @@
+<!-- dbg. BEGIN TABLE THINGS.  
+1. Could have extra column to with icons to enable edit (update/delete) specific row /? 
+-->
+
+<div class="animated fadeIn">
+  <div class="row">
+        <div class="col-lg-12"> <!-- col-lg-6 -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa fa-align-justify"></i> Page Access Master
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                  <tr>
+                    <th>SCREEN CODE</th>
+                    <th>SCREEN DESCRIPTION</th>
+                    <th>URL</th>
+                    <th>APPLICATION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>CAS</td>
+                    <td>SETUP CASHIER</td>
+                    <td>/pages/cash/cashier</td>
+                    <td>CASH OFFICE MASTER</td>
+                  </tr>
+                  <tr>
+                    <td>PYM</td>
+                    <td>SETUP PAYMENT METHOD</td>
+                    <td>/pages/cash/method</td>
+                    <td>CASH OFFICE MASTER</td>
+                  </tr>
+                  <tr>
+                    <td>APP</td>
+                    <td>SETUP APPLICATIONS</td>
+                    <td>/pages/cash/apps</td>
+                    <td>CASH OFFICE MASTER</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+              <ul class="pagination justify-content-end">
+                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <!-- <li class="page-item"><a class="page-link" href="#">4</a></li> -->
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+<!-- END USER MANAGEMENT SCREEN -->
+
+<!-- BEGIN USER INFO-INPUT FORM -->
+
+<div class="row">
+  <div class="col-lg-12"> <!-- col-lg-6 -->
+      <div class="card">
+          <!-- <div class="card-header">
+            <i class="fa fa-align-justify"></i> User Info
+          </div> -->
+
+          <div class="card-body">
+              <form>
+                  <div class="form-row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="SCREEN CODE" required>
+                    </div>
+                    
+                    <div class="col">
+                      <input type="password" class="form-control" placeholder="SCREEN DESCRIPTION" required>
+
+                      <!-- form-text for help messages could be hidden by default -->
+                      <!-- <small id="passwordHelpBlock" class="form-text">
+                          Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                        </small> -->
+                    </div>
+
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="URL" required>
+                    </div>
+<!-- 
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="LAST NAME">
+                    </div> -->
+
+                  <div>
+                    <select class="form-control" required>
+                        <option>Application</option>
+                        <option>Cash Office Master</option>
+                        <!-- <option>Application No. 3</option> -->
+                      </select>
+                  </div>
+
+                  </div>
+                </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- dbg. BUTTON FIELDS -->
+
+<div class="animated fadeIn">
+<div class="card">
+  <!-- <div class="card-header">
+      <strong>Standard Buttons</strong>
+  </div> -->
+  
+  <div class="card-body">
+    <div class="row align-items-center">
+      <!-- <div class="col-12 col-xl mb-3 mb-xl-0">
+        Normal
+      </div> -->
+      
+      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        <button type="button" class="btn btn-block btn-primary">Save</button>
+      </div>
+      
+      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        <button type="button" class="btn btn-block btn-primary">Find</button>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        <button type="button" class="btn btn-block btn-primary">Clear</button>
+      </div>
+      
+      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        <button type="button" class="btn btn-block btn-primary">Change Roles</button>
+      </div>
+            
+      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        <button type="button" class="btn btn-block btn-primary">Exit</button>
+      </div>
+      
+    </div>
+    
+  </div>
+
+</div>
+
+</div>

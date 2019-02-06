@@ -3,10 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SetUpCashierComponent } from './setupcashier.component';
 import { FormsComponent } from './forms.component';
-import { TablesComponent } from './tables.component';
-import { CarouselsComponent } from './carousels.component';
-import { CollapsesComponent } from './collapses.component';
-import { PaginationsComponent } from './paginations.component';
 import { SetUpPaymentMethodComponent } from './setuppaymentmethod.component';
 import { SetUpApplicationsComponent } from './setupapplications.component';
 import { SetUpCashOfficeComponent } from './setupcashoffice.component';
@@ -61,35 +57,7 @@ const routes: Routes = [
         data: {
           title: 'Forms'
         }
-      },
-      {
-        path: 'tables',
-        component: TablesComponent,
-        data: {
-          title: 'Tables'
-        }
-      },
-      {
-        path: 'carousels',
-        component: CarouselsComponent,
-        data: {
-          title: 'Carousels'
-        }
-      },
-      {
-        path: 'collapses',
-        component: CollapsesComponent,
-        data: {
-          title: 'Collapses'
-        }
-      },
-      {
-        path: 'paginations',
-        component: PaginationsComponent,
-        data: {
-          title: 'Pagination'
-        }
-      }
+      }      
     ]
   }
 ];
