@@ -1,0 +1,27 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> PayPoint Details
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Paypoint Id</th>
+                <th>Paypoint Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let app of paypointDetails" (click)="fetchActivities(app.ppId,app.ppName)">
+                <td>{{app.ppId}}</td>
+                <td>{{app.ppName}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

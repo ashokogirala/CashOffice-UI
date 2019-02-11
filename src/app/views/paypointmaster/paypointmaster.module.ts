@@ -5,6 +5,7 @@ import { PaypointmasterRoutingModule } from './paypointmaster-routing.module';
 import { DebitfileTemplateAssignmentComponent } from './debitfile-template-assignment.component';
 import { FileDesignerComponent } from './filedesigner.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaypointComponent } from './paypoint/paypoint.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PaypointmasterRoutingModule,FormsModule,ReactiveFormsModule
   ],
   declarations: [DebitfileTemplateAssignmentComponent,
-    FileDesignerComponent]
+    FileDesignerComponent,
+    PaypointComponent]
 })
 export class PaypointMasterModule { }

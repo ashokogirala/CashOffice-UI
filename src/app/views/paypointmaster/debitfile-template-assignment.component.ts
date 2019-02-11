@@ -15,7 +15,9 @@ export class DebitfileTemplateAssignmentComponent {
            ppName:new FormControl(),
            ppAttributeId :new FormControl(),
            ppAttributeDesc :new FormControl(),
-           selectTemplate:new FormControl()
+           selectTemplate:new FormControl(),
+           pensionOnly:new FormControl(),
+           otherPremium:new FormControl()
 
        })
    }

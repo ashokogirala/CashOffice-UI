@@ -37,7 +37,7 @@ export class AssignCashierComponent {
   }
   updateDesc(event) {
     let co = this.cashOffice.filter(co => co.cashOfficeCode == event.target.value)[0];
-    console.log(event.target.value);
+    //console.log(event.target.value + JSON.stringify(co));
     this.assignCashierForm.patchValue({
       cashOfficeDesc: co.cashOfficeDesc
     })
@@ -70,9 +70,9 @@ export class AssignCashierComponent {
     this.http.post('http://192.168.1.158:9090/CashOffice-Test/api/cashiers/assignCashier', this.assignCashierForm.value)
       .subscribe(
         data => {
-          this.asgndCashiers.push(data);
+          console.log(data);
         }, error => {
-          alert("Error at assigning cashier to the cashoffice");
+          alert(error.error.message);
         }
       );
   }

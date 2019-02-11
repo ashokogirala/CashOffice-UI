@@ -46,8 +46,8 @@
                                     <td>{{cashier.cashierCode}}</td>
                                     <td>{{cashier.cashierName}}</td>
                                     <td>{{cashier.branchCode}}</td>
-                                    <td>{{cashier.startDate}}</td>
-                                    <td>{{cashier.endDate}}</td>
+                                    <td>{{cashier.startDate | date}}</td>
+                                    <td>{{cashier.endDate | date}}</td>
                                     <td><input type="checkbox" value="" id="defaultCheck1"></td>
                                 </tr>
                             </tbody>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label" for="select1">Branch Name</label>
+                            <label class="col-md-3 col-form-label" for="text-input">Branch Name</label>
                             <div class="col-md-3">
                                 <input type="text" formControlName="branchName" class="form-control" 
                                     readonly>
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                                <label class="col-md-3 col-form-label" for="select1">End Date:</label>
+                                <label class="col-md-3 col-form-label" for="text-input">End Date:</label>
                                 <div class="col-md-3">
                                     <input type="date" formControlName="endDate" class="form-control" >
                                 </div>

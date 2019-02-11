@@ -4,17 +4,47 @@
    <div class="row">
       <div class="col-lg-12">
          <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-primary">
                <i class="fa fa-align-justify"></i> Debit File Template Assignment
             </div>
-
             <div class="card-body">
-               <form novalidate action="" method="post" [formGroup]="dbtFileTmpltAssignment" (ngSubmit)="onSubmit(dbtFileTmpltAssignment)">
-                  <div class="form-row">
-                     <div class="col">
+               <div class="card-header bg-secondary text-success font-weight-bold">
+                  <i class="fa fa-align-justify"></i> Existing PayPoint Details
+               </div>
+               <table class="table table-bordered table-striped table-sm">
+                  <thead>
+                     <tr>
+                        <th></th>
+                        <th>PayPoint Id</th>
+                        <th>PayPoint Name</th>
+                        <th>Template</th>
+                        <th>Attribute Description</th>
+                        <th>Constant</th>
+                        <th>Period</th>
+                        <th>Strike Day</th>
+                        <th>Extension</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let paypoint of asgndPayPoints">
+                        <td><input type="radio" value="" id="defaultCheck1"></td>
+                        <td>{{paypoint.cashierCode}}</td>
+                        <td>{{paypoint.cashierName}}</td>
+                        <td>{{paypoint.branchCode}}</td>
+                        <td>{{paypoint.startDate | date}}</td>
+                        <td>{{paypoint.cashierCode}}</td>
+                        <td>{{paypoint.cashierName}}</td>
+                        <td>{{paypoint.branchCode}}</td>
+                        <td>{{paypoint.startDate | date}}</td>
+                     </tr>
+                  </tbody>
+               </table>
 
+               <form action="" method="post" [formGroup]="dbtFileTmpltAssignment" (ngSubmit)="onSubmit(dbtFileTmpltAssignment)">
+                  <div class="form-row">
+                     <div class="col d-block bg-light">
                         <div class="form-group row">
-                           <label class="col-md-3 col-form-label" for="text-input">PayPoint Id:</label>
+                           <label class="col-md-3 col-form-label" >PayPoint Id:</label>
                            <div class="col-md-3">
                               <input type="text" class="form-control" formControlName="ppId">
                            </div>
@@ -36,11 +66,79 @@
                         <div class="form-group row">
                            <label class="col-md-3 col-form-label" for="text-input">Select Template:</label>
                            <div class="col-md-9">
-                              <input type="file" class="form-control-file" formControlName="selectTemplate" 
-                              (change)="handleFileInput($event.target.files)" >                             
+                              <input type="file" class="form-control-file" formControlName="selectTemplate" (change)="handleFileInput($event.target.files)">
                            </div>
                         </div>
+                        <div class="form-group row">
+                           <label class="col-md-3 col-form-label">Pension Only:</label>
+                           <div class="col-md-3 col-form-label">
+                              <div class="form-check form-check-inline mr-1">
+                                 <input class="form-check-input" type="checkbox" formControlName="pensionOnly">
+                              </div>
+                           </div>
+                           <label class="col-md-3 col-form-label">Other Premium:</label>
+                           <div class="col-md-3 col-form-label">
+                              <div class="form-check form-check-inline mr-1">
+                                 <input class="form-check-input" type="checkbox" formControlName="otherPremium">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-header bg-secondary text-success font-weight-bold">
+                           <i class="fa fa-align-justify"></i> File Name Format
+                        </div>
+                        <div class="form-group row">
+                           <label class="col-md-3 col-form-label">Constant</label>
+                           <div class="col-md-3 col-form-label">
+                              <div class="form-check form-check-inline mr-1">
+                                 <input class="form-check-input" type="checkbox">
+                              </div>
+                           </div>
+                           <div class="col-md-3 col-form-label ">
+                              <div class="form-check form-check-inline mr-1">
+                                 <input class="form-control" type="text" value="option1">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label class="col-md-3 col-form-label">Period</label>
+                           <div class="col-md-3 col-form-label">
+                              <div class="form-check form-check-inline mr-1">
+                                 <input class="form-check-input" type="checkbox" id="inline-checkbox1">
+                              </div>
+                           </div>
+                           <div class="col-md-3 col-form-label">
+                              <select class="custom-select"  (change)="updateDetls($event)">
+                                 <option *ngFor="let co of cashiers" [value]="co.cashierId">{{co.cashierCode}}</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label class="col-md-3 col-form-label">Strike day</label>
+                           <div class="col-md-3 col-form-label">
+                              <div class="form-check form-check-inline mr-1">
+                                 <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1">
+                              </div>
+                           </div>
+                           <div class="col-md-3 col-form-label">
+                              <select class="custom-select" (change)="updateDetls($event)">
 
+                                 <option *ngFor="let co of cashiers" [value]="co.cashierId">{{co.cashierCode}}</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label class="col-md-3 col-form-label">File Extension</label>
+                           <div class="col-md-3 col-form-label">
+                              <div class="form-check form-check-inline mr-1">
+                                 <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1">
+                              </div>
+                           </div>
+                           <div class="col-md-3 col-form-label">
+                              <select class="custom-select"  (change)="updateDetls($event)">
+                                 <option *ngFor="let co of cashiers" [value]="co.cashierId">{{co.cashierCode}}</option>
+                              </select>
+                           </div>
+                        </div>
                         <div class="btn-toolbar">
                            <div class="btn-group mr-2">
                               <button type="submit" class="btn btn-md btn-primary ">Report</button>
@@ -55,6 +153,25 @@
 
                   </div>
                </form>
+               <div class="modal fade" id="paypointmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
          </div>
       </div>
