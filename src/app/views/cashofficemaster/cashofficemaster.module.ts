@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// Forms Component
-import { FormsComponent } from './forms.component';
 // Tabs Component
 import { TabsModule } from 'ngx-bootstrap/tabs';
 // Carousel Component
@@ -46,7 +44,6 @@ import { GlobalServices,HttpErrorInterceptor } from '../../services';
   ],
   declarations: [
     SetUpCashierComponent,
-    FormsComponent,
     SetUpPaymentMethodComponent,
     SetUpApplicationsComponent,
     SetUpApplicationsComponent   ,
