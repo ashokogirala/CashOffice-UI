@@ -7,11 +7,36 @@ import { apiURL } from '../../_nav';
   providedIn: 'root'
 })
 export class PaypointmasterService {
+  
 
   constructor(private http: HttpClient) { }
-
+  getAsgndPayPointDetails(): any {
+    return this.http.get(apiURL + "/getAsgndPayPointDetails");
+  }
   getPayPointDetails() {
-      return this.http.get(apiURL+"/getPaypoints");
+    return this.http.get(apiURL + "/getPaypoints");
+  }
+  getPpAttributes() {
+    return this.http.get(apiURL + "/getPaypointAttributes");
+  }  
+  assignTemplate(formData) {
+    return this.http.post(apiURL + "/assignDebitFileTemplate", formData);
+  }
+
+  getFileDesignFields(){
+    return this.http.get(apiURL + "/getFileDsgnFields");
+  }
+  postFileDetailsToPP(formData){
+    return this.http.post(apiURL + "/saveFileDesignToPP", formData);
+  }
+  getAssignedFileDetails(){
+    return this.http.get(apiURL +"/getAssignedFileDetails");
+  }
+  getAssignedFieldDetails(ppId){
+    return this.http.get(apiURL +"/getAssignedFieldDetails?ppId="+ppId);//this will use request param at REST end
+  }
+  deleteFileField(id){
+    return this.http.delete(apiURL +"/deleteFieldWithId/"+id);//this will use pathvariable at REST end
   }
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
