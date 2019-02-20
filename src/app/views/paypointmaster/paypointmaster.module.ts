@@ -6,14 +6,22 @@ import { DebitfileTemplateAssignmentComponent } from './debitfile-template-assig
 import { FileDesignerComponent } from './filedesigner.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaypointComponent } from './paypoint/paypoint.component';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
+import { PagerService } from '../../services';
+import { FileValidator } from '../../customvalidators';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    PaypointmasterRoutingModule,FormsModule,ReactiveFormsModule
+    PaypointmasterRoutingModule, FormsModule, ReactiveFormsModule, ModalModule.forRoot()
+  ],
+  entryComponents: [
+    PaypointComponent,
   ],
   declarations: [DebitfileTemplateAssignmentComponent,
     FileDesignerComponent,
-    PaypointComponent]
+    PaypointComponent, FileValidator],
+  providers: [BsModalService, PagerService]
 })
 export class PaypointMasterModule { }
