@@ -1,27 +1,38 @@
-<div class="animated fadeIn">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-          <i class="fa fa-align-justify"></i> PayPoint Details
-        </div>
-        <div class="card-body">
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
-              <tr>
-                <th>Paypoint Id</th>
-                <th>Paypoint Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let app of paypointDetails" (click)="fetchActivities(app.ppId,app.ppName)">
-                <td>{{app.ppId}}</td>
-                <td>{{app.ppName}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Model Title</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Paypoint Id</th>
+        <th>Paypoint Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of pagedItems" (click)="populateDetails(app.payPointId,app.payPointName)">
+        <td>{{app.payPointId}}</td>
+        <td>{{app.payPointName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <nav>
+    <ul class="pagination">
+      <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+        <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item active">
+        <a class="page-link" (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
 </div>
