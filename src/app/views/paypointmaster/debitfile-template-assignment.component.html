@@ -17,7 +17,7 @@
                         <th></th>
                         <th>PayPoint Id</th>
                         <th>PayPoint Name</th>
-                        <th>Template</th>
+                        <th>File Name</th>
                         <th>Attribute Description</th>
                         <th>Constant</th>
                         <th>Period</th>
@@ -26,47 +26,67 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <tr *ngFor="let paypoint of asgndPayPoints">
-                        <td><input type="radio" value="" id="defaultCheck1"></td>
-                        <td>{{paypoint.cashierCode}}</td>
-                        <td>{{paypoint.cashierName}}</td>
-                        <td>{{paypoint.branchCode}}</td>
-                        <td>{{paypoint.startDate | date}}</td>
-                        <td>{{paypoint.cashierCode}}</td>
-                        <td>{{paypoint.cashierName}}</td>
-                        <td>{{paypoint.branchCode}}</td>
-                        <td>{{paypoint.startDate | date}}</td>
+                     <tr *ngFor="let paypoint of pagedItems">
+                        <td><input type="radio" value={{paypoint.ppId}} name="paypoint" (change)="populateDetails($event)"></td>
+                        <td>{{paypoint.ppId}}</td>
+                        <td>{{paypoint.ppName}}</td>
+                        <td>{{paypoint.selectTemplate}}</td>
+                        <td>{{paypoint.ppAttributeDesc}}</td>
+                        <td>{{paypoint.ffConstantValue}}</td>
+                        <td>{{paypoint.ffPeriod}}</td>
+                        <td>{{paypoint.ffStrikeday}}</td>
+                        <td>{{paypoint.ffFileExtension}}</td>
                      </tr>
                   </tbody>
                </table>
-
-               <form action="" method="post" [formGroup]="dbtFileTmpltAssignment" (ngSubmit)="onSubmit(dbtFileTmpltAssignment)">
+               <nav>
+                  <ul class="pagination">
+                      <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                          <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+                      </li>
+                      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item active">
+                          <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                      </li>
+                      <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                          <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+                      </li>
+                  </ul>
+              </nav>
+               <form action="" method="post" [formGroup]="dbtFileTmpltAssignment"
+                  (ngSubmit)="onSubmit(dbtFileTmpltAssignment)">
                   <div class="form-row">
                      <div class="col d-block bg-light">
                         <div class="form-group row">
-                           <label class="col-md-3 col-form-label" >PayPoint Id:</label>
+                           <label class="col-md-3 col-form-label">PayPoint Id:</label>                           
                            <div class="col-md-3">
-                              <input type="text" class="form-control" formControlName="ppId">
+                              <input type="text" class="form-control" formControlName="ppId"
+                                 (click)="openModalWithComponent()">                                 
                            </div>
                            <label class="col-md-3 col-form-label" for="text-input">PayPoint Name:</label>
                            <div class="col-md-3">
-                              <input type="text" class="form-control" formControlName="ppName">
+                              <input type="text" class="form-control" formControlName="ppName" readonly>
                            </div>
                         </div>
                         <div class="form-group row">
                            <label class="col-md-3 col-form-label" for="text-input">PayPoint Attribute Id:</label>
                            <div class="col-md-3">
-                              <input type="text" class="form-control" formControlName="ppAttributeId">
+                              <select class="custom-select" formControlName="ppAttributeId"
+                                 (change)="setPpAttrDesc($event)">
+                                 <option *ngFor="let attr of ppAttributes" [value]="attr.ppAttributeId">
+                                    {{attr.ppAttributeId}}</option>
+                              </select>
                            </div>
-                           <label class="col-md-3 col-form-label" for="text-input">PayPoint Attribute Description:</label>
+                           <label class="col-md-3 col-form-label" for="text-input">PayPoint Attribute
+                              Description:</label>
                            <div class="col-md-3">
-                              <input type="text" class="form-control" formControlName="ppAttributeDesc">
+                              <input type="textarea" class="form-control" formControlName="ppAttributeDesc" readonly>
                            </div>
                         </div>
                         <div class="form-group row">
                            <label class="col-md-3 col-form-label" for="text-input">Select Template:</label>
                            <div class="col-md-9">
-                              <input type="file" class="form-control-file" formControlName="selectTemplate" (change)="handleFileInput($event.target.files)">
+                              <input type="file" class="form-control-file" formControlName="selectTemplate"
+                                 (change)="handleFileInput($event.target.files)">
                            </div>
                         </div>
                         <div class="form-group row">
@@ -79,7 +99,7 @@
                            <label class="col-md-3 col-form-label">Other Premium:</label>
                            <div class="col-md-3 col-form-label">
                               <div class="form-check form-check-inline mr-1">
-                                 <input class="form-check-input" type="checkbox" formControlName="otherPremium">
+                                 <input class="form-check-input" type="checkbox" formControlName="otherPremOnly">
                               </div>
                            </div>
                         </div>
@@ -90,12 +110,13 @@
                            <label class="col-md-3 col-form-label">Constant</label>
                            <div class="col-md-3 col-form-label">
                               <div class="form-check form-check-inline mr-1">
-                                 <input class="form-check-input" type="checkbox">
+                                 <input class="form-check-input" name="constantCheckBox" 
+                                 [checked]="this.constantChecked" type="checkbox" (change)="isChecked($event)">
                               </div>
                            </div>
-                           <div class="col-md-3 col-form-label ">
+                           <div *ngIf="constantChecked" class="col-md-3 col-form-label " >
                               <div class="form-check form-check-inline mr-1">
-                                 <input class="form-control" type="text" value="option1">
+                                 <input class="form-control" type="text" formControlName="ffConstantValue">
                               </div>
                            </div>
                         </div>
@@ -103,12 +124,18 @@
                            <label class="col-md-3 col-form-label">Period</label>
                            <div class="col-md-3 col-form-label">
                               <div class="form-check form-check-inline mr-1">
-                                 <input class="form-check-input" type="checkbox" id="inline-checkbox1">
+                                 <input class="form-check-input" name="periodCheckBox" 
+                                 [checked]="this.periodChecked" type="checkbox" (change)="isChecked($event)">
                               </div>
                            </div>
-                           <div class="col-md-3 col-form-label">
-                              <select class="custom-select"  (change)="updateDetls($event)">
-                                 <option *ngFor="let co of cashiers" [value]="co.cashierId">{{co.cashierCode}}</option>
+                           <div *ngIf="periodChecked" class="col-md-3">
+                              <select class="custom-select" formControlName="ffPeriod">
+                                 <option>MM-DD-YY</option>
+                                 <option>DD-MON-YYYY</option>
+                                 <option>YYYY-MM-DD</option>
+                                 <option>DD-MM-YYYY</option>
+                                 <option>MMYY</option>
+                                 <option>DDMMYYYY</option>
                               </select>
                            </div>
                         </div>
@@ -116,13 +143,19 @@
                            <label class="col-md-3 col-form-label">Strike day</label>
                            <div class="col-md-3 col-form-label">
                               <div class="form-check form-check-inline mr-1">
-                                 <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1">
+                                 <input class="form-check-input" type="checkbox" (change)="isChecked($event)" 
+                                 name="strikedayCheckBox" 
+                                 [checked]="this.strikeDayChecked">
                               </div>
                            </div>
-                           <div class="col-md-3 col-form-label">
-                              <select class="custom-select" (change)="updateDetls($event)">
-
-                                 <option *ngFor="let co of cashiers" [value]="co.cashierId">{{co.cashierCode}}</option>
+                           <div *ngIf="strikeDayChecked" class="col-md-3 col-form-label">
+                              <select class="custom-select" formControlName="ffStrikeday">
+                                 <option>MM-DD-YY</option>
+                                 <option>DD-MON-YYYY</option>
+                                 <option>YYYY-MM-DD</option>
+                                 <option>DD-MM-YYYY</option>
+                                 <option>MMYY</option>
+                                 <option>DDMMYYYY</option>
                               </select>
                            </div>
                         </div>
@@ -130,48 +163,46 @@
                            <label class="col-md-3 col-form-label">File Extension</label>
                            <div class="col-md-3 col-form-label">
                               <div class="form-check form-check-inline mr-1">
-                                 <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1">
+                                 <input class="form-check-input" type="checkbox" name="fileExtCheckBox" 
+                                 [checked]="this.extensionChecked" (change)="isChecked($event)">
                               </div>
                            </div>
-                           <div class="col-md-3 col-form-label">
-                              <select class="custom-select"  (change)="updateDetls($event)">
-                                 <option *ngFor="let co of cashiers" [value]="co.cashierId">{{co.cashierCode}}</option>
+                           <div *ngIf="extensionChecked" class="col-md-3 col-form-label">
+                              <select class="custom-select" formControlName="ffFileExtension">
+                                 <option>.CSV</option>
+                                 <option>.TXT</option>
+                                 <option>OTHERS</option>
+                                 <option>SEQUENCE</option>
                               </select>
                            </div>
                         </div>
-                        <div class="btn-toolbar">
-                           <div class="btn-group mr-2">
-                              <button type="submit" class="btn btn-md btn-primary ">Report</button>
-                           </div>
-
-                           <div class="btn-group mr-2">
-                              <button type="button" class="btn btn-md btn-primary " (click)="exitReport()">Exit</button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <div class="card">
+                           <div class="card-body" style="align-self: center">
+                              <div class="btn-toolbar">
+                                 <div class="btn-group mr-2">
+                                    <button [disabled]="!dbtFileTmpltAssignment.valid" type="submit" class="btn btn-md btn-primary">Save</button>
+                                 </div>
+                                 <div class="btn-group mr-2">
+                                    <button type="button" class="btn btn-md btn-primary"
+                                       (click)="search()">Search</button>
+                                 </div>
+                                 <div class="btn-group mr-2">
+                                    <button type="button" class="btn btn-md btn-primary"
+                                       (click)="resetForm()">Clear</button>
+                                 </div>
+                                 <div class="btn-group mr-2">
+                                    <a href="#"><button type="button" class="btn btn-md btn-primary">Exit</button></a>
+                                 </div>
+                              </div>
                            </div>
                         </div>
-
                      </div>
-
                   </div>
                </form>
-               <div class="modal fade" id="paypointmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        ...
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
             </div>
          </div>
       </div>
