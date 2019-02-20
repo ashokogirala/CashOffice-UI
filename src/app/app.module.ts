@@ -41,6 +41,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { PagerService,GlobalServices } from './services/index';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { PagerService,GlobalServices } from './services/index';
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule,ReactiveFormsModule,HttpClientModule
+    ChartsModule,ReactiveFormsModule,HttpClientModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     AppComponent,
