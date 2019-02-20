@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SetUpCashierComponent } from './setupcashier.component';
-import { FormsComponent } from './forms.component';
 import { SetUpPaymentMethodComponent } from './setuppaymentmethod.component';
 import { SetUpApplicationsComponent } from './setupapplications.component';
 import { SetUpCashOfficeComponent } from './setupcashoffice.component';
@@ -49,13 +48,6 @@ const routes: Routes = [
         component: AssignCashierComponent,
         data: {
           title: 'Assign-Cashier'
-        }
-      },
-      {
-        path: 'forms',
-        component: FormsComponent,
-        data: {
-          title: 'Forms'
         }
       }      
     ]
