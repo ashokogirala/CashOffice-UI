@@ -184,6 +184,67 @@ export const navItems = [
     ]
   },
   {
+    name: 'PayPoint Reports',
+    url: '/paypoint-reports',
+    icon: 'icon-bell',
+    children: [
+      {
+        name: 'Overs And Unders',
+        url: '/paypoint-reports/oversandunders',
+        //icon: 'icon-bell'
+      },
+  
+    {
+      name: 'Rejections',
+      url: '/paypoint-reports/rejections',
+      //icon: 'icon-bell'
+    },
+    {
+      name: 'PayPoint Summary',
+      url: '/paypoint-reports/paypoint-summary',
+      //icon: 'icon-bell'
+    },
+    {
+      name: 'UnAllocated Cash Reciepts',
+      url: '/paypoint-reports/unallocated-cashReciepts',
+      //icon: 'icon-bell'
+    },
+    { 
+      name: 'Unmatched Credits',
+      url: '/paypoint-reports/unmatchedCredit',
+      //icon: 'icon-bell'
+    },
+    {
+      name: 'Reciept Allocation Status',
+      url: '/paypoint-reports/reciept-allocation-status',
+      //icon: 'icon-bell'
+    }
+    ,
+    {
+      name: 'Unspecified Bank',
+      url: '/paypoint-reports/unspecified-bank',
+    }
+    ,
+    {
+      name: 'Unspecified GSO-ESO',
+      url: '/paypoint-reports/unspecified-gsoeso',
+    },
+    {
+      name: 'Bank Statement',
+      url: '/paypoint-reports/bank-statement',
+    },
+    {
+      name: 'Manual Adjustment Report',
+      url: '/paypoint-reports/manual-adjustment'
+    },
+    {
+      name: 'Bank Statement Allocation',
+      url: '/paypoint-reports/statement-allocation'
+    }
+    
+  ]
+  },
+  {
     name: 'Charts',
     url: '/charts',
     icon: 'icon-pie-chart'

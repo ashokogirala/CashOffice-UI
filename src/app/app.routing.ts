@@ -71,6 +71,10 @@ export const routes: Routes = [
         loadChildren: './views/paypointtransaction/paypointtransaction.module#PaypointTransactionModule'
       },
       {
+        path: 'paypoint-reports',
+        loadChildren: './views/paypointreports/paypoint-reports.module#PaypointReportsModule'
+      },
+      {
         path: 'charts',
         loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
       },
