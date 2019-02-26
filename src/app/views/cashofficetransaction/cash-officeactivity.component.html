@@ -1,0 +1,141 @@
+<div class="animated fadeIn" action="" method="post" enctype="multipart/form-data">
+    <form [formGroup]="QueryReciept" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i> Cash office Activity Details
+                    </div>
+                    <form novalidate method="post" [formGroup]="cashOfficeForm">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="text-input">Activity_id</label>
+                                            <div class="col-md-3">
+                                                <input type="text" formControlName="recieptDesc" class="form-control"
+                                                    placeholder="Activity_id" readonly>
+                                            </div>
+                                            <label class="col-md-3 col-form-label"
+                                                for="text-input">Cash_officecode</label>
+                                            <div class="col-md-3">
+                                                <input type="text" formControlName="recieptDesc" class="form-control"
+                                                    placeholder="Code" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="text-input">Branch_code</label>
+                                            <div class="col-md-3">
+                                                <input type="text" formControlName="recieptDesc" class="form-control"
+                                                    placeholder="BranchCode" readonly>
+                                            </div>
+                                            <label class="col-md-3 col-form-label" for="text-input">Reciept:</label>
+                                            <div class="col-md-3">
+                                                <input type="date" formControlName="startDate" class="form-control">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-body" style="align-self: center">
+                                <div class="btn-toolbar">
+
+                                    <div class="btn-group mr-2">
+                                        <button type="submit" class="btn btn-md btn-primary">Status</button>
+                                    </div>
+                                    <div class="btn-group mr-2">
+                                        <button type="button" class="btn btn-md btn-primary ">Open</button>
+                                    </div>
+                                    <div class="btn-group mr-2">
+                                        <a href="#"><button type="button"
+                                                class="btn btn-md btn-primary ">Close</button></a>
+                                    </div>
+                                    <div class="btn-group mr-2">
+                                        <button type="submit" class="btn btn-md btn-primary">Post</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form novalidate method="post" [formGroup]="cashOfficeForm">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label" for="text-input">Cashier
+                                                    code</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" formControlName="recieptDesc"
+                                                        class="form-control" placeholder="Cashier code" readonly>
+                                                </div>
+                                                <label class="col-md-3 col-form-label" for="text-input">Cashier
+                                                    name</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" formControlName="recieptDesc"
+                                                        class="form-control" placeholder="Name of cashier" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label"
+                                                    for="text-input">Branch_code</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" formControlName="recieptDesc"
+                                                        class="form-control" placeholder="BranchCode" readonly>
+                                                </div>
+                                                <label class="col-md-3 col-form-label" for="text-input">Login
+                                                    Id:</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" formControlName="recieptDesc"
+                                                        class="form-control" placeholder="Login Id" readonly>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Authorize</label>
+                                                <div class="col-md-9 col-form-label">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="option1"
+                                                            formControlName="enabled">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-body" style="align-self: center">
+                                    <div class="btn-toolbar">
+
+                                        <div class="btn-group mr-2">
+                                            <button type="submit" class="btn btn-md btn-primary">Print Daily
+                                                Listing</button>
+                                        </div>
+
+                                        <div class="btn-group mr-2">
+                                            <a href="#"><button type="button"
+                                                    class="btn btn-md btn-primary ">Exit</button></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+    <!--form end -->
+</div>
