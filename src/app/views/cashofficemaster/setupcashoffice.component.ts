@@ -3,14 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import * as _ from 'underscore';
 
 import { PagerService, GlobalServices } from './../../services/index';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { apiURL } from '../../_nav';
 @Component({
   templateUrl: 'setupcashoffice.component.html'
 })
 export class SetUpCashOfficeComponent {
   cashOfficeForm: FormGroup;
   assignApplicationForm: FormGroup;
-  assignPayMethodForm :FormGroup;
+  assignPayMethodForm: FormGroup;
   cashOffice: any;
   allBranches: any;
   currValue: any;
@@ -22,26 +23,26 @@ export class SetUpCashOfficeComponent {
   assignedapps: any;
   applications: any;
   currApp: any;
-  assignedpayMethods :any;
-  paymentMethods :any;
-  currPaymentMethod :any;
+  assignedpayMethods: any;
+  paymentMethods: any;
+  currPaymentMethod: any;
   constructor(private http: HttpClient, private pagerService: PagerService, private gs: GlobalServices) {
     this.cashOfficeForm = new FormGroup({
-      cashOfficeCode: new FormControl(),
-      cashOfficeDesc: new FormControl(),
-      branchCode: new FormControl(),
+      cashOfficeCode: new FormControl('', Validators.required),
+      cashOfficeDesc: new FormControl('', Validators.required),
+      branchCode: new FormControl('', Validators.required),
       branchName: new FormControl()
     });
     this.assignApplicationForm = new FormGroup({
       cashOfficeCode: new FormControl(),
-      applicationCode: new FormControl(),
+      applicationCode: new FormControl('', Validators.required),
       applicationDesc: new FormControl(),
       startDate: new FormControl(),
       endDate: new FormControl()
     });
     this.assignPayMethodForm = new FormGroup({
       cashOfficeCode: new FormControl(),
-      pymtMethodCode: new FormControl(),
+      pymtMethodCode: new FormControl('', Validators.required),
       pymtMethodDesc: new FormControl(),
       startDate: new FormControl(),
       endDate: new FormControl()
@@ -86,7 +87,7 @@ export class SetUpCashOfficeComponent {
     });
     this.gs.getApplications()
       .subscribe(data => {
-       // console.log(data);
+        // console.log(data);
         this.applications = data;
       })
   }
@@ -108,34 +109,50 @@ export class SetUpCashOfficeComponent {
     });
     this.gs.getPaymentMethods()
       .subscribe(data => {
-        //console.log(data);
+        console.log(data);
         this.paymentMethods = data;
       })
   }
 
-  showDetails(value, e) {    
+  showDetails(value, e) {
+    console.log(value);
     if (e.target.checked) {
-      this.cashOfficeForm.setValue({
-        cashOfficeCode: value.cashOfficeCode,
-        cashOfficeDesc: value.cashOfficeDesc,
-        branchCode: value.branchCode,
-        branchName: value.branchName
-      });      
+      if (e.target.name == "coradio") {
+        this.cashOfficeForm.setValue({
+          cashOfficeCode: value.cashOfficeCode,
+          cashOfficeDesc: value.cashOfficeDesc,
+          branchCode: value.branchCode,
+          branchName: value.branchName
+        });
+      } else if (e.target.name == "appRadio") {
+        this.assignApplicationForm.patchValue({
+          applicationCode: value.applicationCode,
+          applicationDesc: value.applicationDesc,
+          startDate: this.gs.fromJsonDate(value.startDate),
+          endDate:this.gs.fromJsonDate(value.endDate)
+        });
+      }else if(e.target.name=="asgnPmRadio"){
+        this.assignPayMethodForm.patchValue({
+          pymtMethodCode :value.pymtMethodCode,
+          pymtMethodDesc: value.pymtMethodDesc,
+          startDate: this.gs.fromJsonDate(value.startDate),
+          endDate: this.gs.fromJsonDate(value.endDate)
+        });
+      }
     } else {
       this.clearForm();
     }
   }
   updateBranchName(event) {
     //this.allBranches.filter(app => app.abbrName == event.target.value);
-    console.log(this.allBranches.filter(app => app.abbrName == event.target.value)[0]);
+    //console.log(this.allBranches.filter(app => app.abbrName == event.target.value)[0]);
     this.cashOfficeForm.patchValue({
-      branchName :this.allBranches.filter(app => app.abbrName == event.target.value)[0].companyName
-    });    
+      branchName: this.allBranches.filter(app => app.abbrName == event.target.value)[0].companyName
+    });
   }
   updateAppDetails(event) {
-    //filter is used to filter the array of objects based on a object property
-    this.currApp = this.applications.filter(app => app.appId == event.target.value);
-    console.log(this.currApp[0]);
+    this.currApp = this.applications.filter(app => app.applicationCode == event.target.value);
+    //console.log(this.currApp[0]);
     //patchValue is used to update only some of the form fields
     this.assignApplicationForm.patchValue({
       cashOfficeCode: this.assignApplicationForm.controls["cashOfficeCode"].value,
@@ -145,8 +162,9 @@ export class SetUpCashOfficeComponent {
     });
   }
   updatePayMethodDetails(event) {
+    console.log(event.target.value);
     //filter is used to filter the array of objects based on a object property 
-    this.currPaymentMethod = this.paymentMethods.filter(app => app.payMethodId == event.target.value);
+    this.currPaymentMethod = this.paymentMethods.filter(app => app.payMethodCode == event.target.value);
 
     //patchValue is used to update only some of the form fields
     this.assignPayMethodForm.patchValue({
@@ -164,28 +182,58 @@ export class SetUpCashOfficeComponent {
       branchName: ''
     })
   }
+  search(value) {
+    let coDet = this.cashOffice.filter(co => co.cashOfficeCode == value.toUpperCase());
+    if (coDet.length == 0) {
+      alert("No cashoffice exists with given code");
+    } else {
+      this.cashOfficeForm.patchValue({
+        cashOfficeCode: coDet[0].cashOfficeCode,
+        cashOfficeDesc: coDet[0].cashOfficeDesc,
+        branchCode: coDet[0].branchCode,
+        branchName: coDet[0].branchName
+      });
+    }
+
+  }
   setPage(page: number) {
     if (page < 1 || page > this.pager.totalPages) {
       return;
     }
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.cashOffice.length, page,5);
+    this.pager = this.pagerService.getPager(this.cashOffice.length, page, 5);
 
     // get current page of items
     this.pagedItems = this.cashOffice.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
-  assignApplication(formValue) {
-    this.http.post("http://192.168.1.158:9090/CashOffice-Test/api/assignAppToCashOffice", formValue.value)
-      .subscribe((response) => {
+  onCoSubmit() {
+    console.log(this.cashOfficeForm.value);
+    this.http.post(apiURL + '/createCashOffice', this.cashOfficeForm.value).
+      subscribe(response => {
+        alert("successfully saved/updated cashoffice details");
+        this.ngOnInit();
+      }, error => {
+        alert("failed to save/update cashoffice details");
+      });
+  }
+  assignApplication(formValue) {    
+    this.http.post(apiURL + '/assignAppToCashOffice', formValue.value)
+      .subscribe(response => {
+        alert("Application successfully assigned to CashOffice");
+        this.showAssignApplication(formValue.value.cashOfficeCode);
         console.log(response);
+      },error =>{
+        alert("Error during assigning application to Cashoffice");
       })
   }
   assignPaymentMenthod(formValue) {
     //console.log(formValue);
-    this.http.post("http://192.168.1.158:9090/CashOffice-Test/api/asgnPaymentMethodToCO", formValue.value)
+    this.http.post(apiURL + '/asgnPaymentMethodToCO', formValue.value)
       .subscribe((response) => {
+        alert("Payment method successfully assigned to CashOffice");
+        this.showAssignPayMethod(formValue.value.cashOfficeCode);
         console.log(response);
       })
   }
-  
+
 }
