@@ -4,6 +4,7 @@ import { PaypointmasterService } from '../paypointmaster.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PagerService } from '../../../services/index';
 import { Subject } from 'rxjs';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-paypoint',
@@ -12,16 +13,22 @@ import { Subject } from 'rxjs';
 export class PaypointComponent implements OnInit {
 
   paypointDetails: any;
-  pager: any={};
-  pagedItems: any=[];
+  pager: any = {};
+  pagedItems: any = [];
+  paypointForm: FormGroup;
   public onClose: Subject<any>;
-  constructor(private ppservice: PaypointmasterService, 
-    private bsModalRef: BsModalRef, private pagerService: PagerService) { }
+  constructor(private ppservice: PaypointmasterService,
+    private bsModalRef: BsModalRef, private pagerService: PagerService) {
+    this.paypointForm = new FormGroup({
+      paypointName: new FormControl()
+    })
+  }
 
   ngOnInit() {
     this.onClose = new Subject();
     this.ppservice.getPayPointDetails().subscribe(
-      response => {        
+      response => {
+        //console.log(response);
         this.paypointDetails = response;
         this.setPage(1);
       },
@@ -31,8 +38,14 @@ export class PaypointComponent implements OnInit {
     )
   }
   public populateDetails(ppId, ppName) {
-    this.onClose.next(this.paypointDetails.filter(app => app.payPointId==ppId));
-    this.bsModalRef.hide() ;      
+    this.onClose.next(this.paypointDetails.filter(app => app.payPointId == ppId));
+    this.bsModalRef.hide();
+  }
+  onSearch(value) {
+    //console.log(value.toLowerCase());
+    let findPaypoint = this.paypointDetails.filter(app =>app.payPointName.toLowerCase().includes(value.toLowerCase()));
+    this.paypointDetails=findPaypoint;
+    this.setPage(1);
   }
   setPage(page: number) {
     if (page < 1 || page > this.pager.totalPages) {
