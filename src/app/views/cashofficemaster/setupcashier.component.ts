@@ -3,7 +3,7 @@ import { FormGroup, FormControl,Validators} from '@angular/forms';
 import { CreateCashier } from './CreateCashier.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PagerService, GlobalServices } from './../../services/index';
-
+import { apiURL } from '../../_nav';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -29,16 +29,16 @@ export class SetUpCashierComponent {
     );
   }
   ngOnInit() {
-    this.http.get('http://192.168.1.158:9090/CashOffice-Test/api/cashiers').subscribe(
+    this.http.get(apiURL +'/cashiers').subscribe(
       (response) => {
         //console.log(response);
         this.cashiers = response;
         this.setPage(1);
       }
     );
-    this.http.get('http://192.168.1.158:9090/CashOffice-Test/api/getUsers').subscribe(
+    this.http.get(apiURL+'/getUsers').subscribe(
       (response) => {
-        console.log(response);
+        //console.log(response);
         this.users = response;        
       }
     );
@@ -48,16 +48,16 @@ export class SetUpCashierComponent {
       });
   }
   onSubmit({ value, valid }: { value: CreateCashier, valid: boolean }) {
-    console.log(valid);
+    //console.log(valid);
     if(valid){
-    let obs = this.http.post('http://192.168.1.158:9090//CashOffice-Test/api/cashiers/createCashier',this.createCashier.value)
+    let obs = this.http.post(apiURL+'/cashiers/createCashier',this.createCashier.value)
     .subscribe(
         data => {
                   console.log(data);
-                  alert("User created successfully.");
+                  alert("User created/updated successfully.");
                 },
         error => {
-                  alert("Please fill all the details");
+                  alert("Error while creating new cashier with given details");
                   console.log('oops', error)
                }
     );
@@ -68,14 +68,27 @@ export class SetUpCashierComponent {
       branchName :this.allBranches.filter(app => app.abbrName == event.target.value)[0].companyName
     });    
   }
+  search(value){
+    let cashier=this.cashiers.filter(app => app.cashierCode == value.toUpperCase());
+    if(cashier.length != 0){
+      this.createCashier.patchValue({
+        cashierCode: cashier[0].cashierCode,
+        cashierName: cashier[0].cashierName,
+        loginId: cashier[0].loginId,
+        branchCode: cashier[0].branchCode,
+        branchName: cashier[0].branchName
+      });
+    }else{
+      alert("No Cashier exists with Cashier Code "+value);
+    }    
+  }
   clear(){
     this.createCashier.setValue({
       cashierCode: '',
-        cashierName: '',
-        loginId: 'Please Select',
-        branchCode: 'Please Select',
-        branchName: ''
-
+      cashierName: '',
+      loginId: 'Please Select',
+      branchCode: 'Please Select',
+      branchName: ''
     });
   }
   setPage(page: number) {
