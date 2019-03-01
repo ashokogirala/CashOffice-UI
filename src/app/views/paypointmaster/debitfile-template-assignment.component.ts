@@ -55,24 +55,28 @@ export class DebitfileTemplateAssignmentComponent {
       }
     )
   }
-  populateDetails(event){    
+  populateDetails(value){    
     //console.log(event.target.value);
     //console.log(event.target.checked);
-    let ppDet=this.asgndPayPoints.filter(pp => pp.ppId == event.target.value);
-    //console.log(ppDet);
-    this.dbtFileTmpltAssignment.patchValue({
-      ppId: ppDet[0].ppId,
-      ppName: ppDet[0].ppName,
-      ppAttributeId:ppDet[0].ppAttributeId,
-      ppAttributeDesc:ppDet[0].ppAttributeDesc ,
-      selectTemplate: '',
-      pensionOnly: ppDet[0].pensionOnly == "Y" ? true :false,
-      otherPremOnly: ppDet[0].otherPremOnly == "Y" ? true :false,
-      ffConstantValue: ppDet[0].ffConstantValue,
-      ffPeriod: ppDet[0].ffPeriod,
-      ffStrikeday: ppDet[0].ffStrikeday,
-      ffFileExtension:ppDet[0].ffFileExtension
-    })
+    let ppDet=this.asgndPayPoints.filter(pp => pp.ppId == value);
+    if(ppDet.length == 0 ){
+      alert("No templates are assigned to paypoint");
+    }else{
+      this.dbtFileTmpltAssignment.patchValue({
+        ppId: ppDet[0].ppId,
+        ppName: ppDet[0].ppName,
+        ppAttributeId:ppDet[0].ppAttributeId,
+        ppAttributeDesc:ppDet[0].ppAttributeDesc ,
+        selectTemplate: '',
+        pensionOnly: ppDet[0].pensionOnly == "Y" ? true :false,
+        otherPremOnly: ppDet[0].otherPremOnly == "Y" ? true :false,
+        ffConstantValue: ppDet[0].ffConstantValue,
+        ffPeriod: ppDet[0].ffPeriod,
+        ffStrikeday: ppDet[0].ffStrikeday,
+        ffFileExtension:ppDet[0].ffFileExtension
+      })
+    }
+    
   }
   openModalWithComponent() {
     //console.log("modal call");
@@ -80,6 +84,7 @@ export class DebitfileTemplateAssignmentComponent {
     this.bsModalRef.content.closeBtnName = 'Close';
     this.bsModalRef.content.onClose.subscribe(result => {
       this.selectedPaypoint = result[0];
+      this.dbtFileTmpltAssignment.reset();
       this.dbtFileTmpltAssignment.patchValue({
         ppId: this.selectedPaypoint.payPointId,
         ppName: this.selectedPaypoint.payPointName
@@ -147,7 +152,7 @@ export class DebitfileTemplateAssignmentComponent {
       this.dbtFileTmpltAssignment.controls['enabled'].setValue(false);
     }
     const formModel = this.prepareSave();
-    console.log(formModel);
+    //console.log(formModel);
     this.ppservice.assignTemplate(formModel).subscribe(
       (response) => {
         alert("template is successfully assigned");
@@ -160,21 +165,9 @@ export class DebitfileTemplateAssignmentComponent {
         console.log(error.message);
       }
     ) 
-  }
+  }  
   resetForm(): any {
-    this.dbtFileTmpltAssignment.setValue({
-      ppId: '',
-      ppName: '',
-      ppAttributeId:'',
-      ppAttributeDesc: '',
-      selectTemplate: '',
-      pensionOnly: '',
-      otherPremOnly: '',
-      ffConstantValue: '',
-      ffPeriod: '',
-      ffStrikeday: '',
-      ffFileExtension:''
-    });    
+    this.dbtFileTmpltAssignment.reset();
   this.constantChecked = false;
   this.periodChecked = false;
   this.extensionChecked = false;
