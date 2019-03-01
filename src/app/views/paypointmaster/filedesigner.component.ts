@@ -89,6 +89,7 @@ export class FileDesignerComponent {
         //console.log("89 " + response.toString());
         if(response.toString() == ""){
           alert("No fields exists for this File");
+          this.asgndFields=null;
         }else{
           this.asgndFields = response;
         }        
@@ -139,6 +140,7 @@ export class FileDesignerComponent {
   resetForm() {
     this.fileDesignerForm.reset();
     this.asgndFields = null;
+    this.showFieldInputs=false;
   }
   onSubmit() {
     console.log(this.fileDesignerForm.value);
