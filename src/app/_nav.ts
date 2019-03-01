@@ -87,6 +87,59 @@ export const navItems = [
     ]
   },
   {
+    name: 'CashOfficeTransactions',
+    url: '/cashofficetransaction',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Query-Reciept',
+        url: '/cashofficetransaction/QueryReciept',
+        icon: 'icon-star'
+      },
+      {
+        name: 'CancelReciept',
+        url: '/cashofficetransaction/CancelReciept',
+        icon: 'icon-star'
+      },
+      
+    {
+      name: 'cashofficeactivity',
+      url: '/cashofficetransaction/cashofficeactivity',
+      icon: 'icon-star'
+    },
+    {
+      name: 'Approvecancellation',
+      url: '/cashofficetransaction/Approvecancellation',
+      icon: 'icon-star'
+    },
+    {
+      name: 'paymentreceipt',
+      url: '/cashofficetransaction/paymentreceipt',
+      icon: 'icon-star'
+    },
+    {
+      name: 'cashtillactivity',
+      url: '/cashofficetransaction/cashtillactivity',
+      icon: 'icon-star'
+    },
+    {
+      name: 'ReceiptPosting',
+      url: '/cashofficetransaction/ReceiptPosting',
+      icon: 'icon-star'
+    },
+      {
+        name: 'PrintSlip',
+        url: '/cashofficetransaction/PrintSlip',
+        icon: 'icon-star'
+      },
+      {
+        name: 'secureloanenquire',
+        url: '/cashofficetransaction/secureloanenquire',
+        icon: 'icon-star'
+      }             
+    ]
+  },
+  {
     name: 'Pay Point Master',
     url: '/paypointmaster',
     icon: 'icon-puzzle',
@@ -99,6 +152,33 @@ export const navItems = [
       {
         name: 'File Designer',
         url: '/paypointmaster/filedesigner',
+        icon: 'icon-star'
+      }      
+    ]
+  },
+  {
+    name: 'Pay Point Transaction',
+    url: '/paypointtransaction',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Generate DebitFile',
+        url: '/paypointtransaction/generate-debitfile',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Split/Merge DebitFile',
+        url: '/paypointtransaction/split-merge-debitfile',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Split/Merge Search',
+        url: '/paypointtransaction/split-merge-search',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Upload CreditFile',
+        url: '/paypointtransaction/upload-creditfile',
         icon: 'icon-star'
       }      
     ]
