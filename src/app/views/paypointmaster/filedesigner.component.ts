@@ -147,7 +147,7 @@ export class FileDesignerComponent {
     this.ppService.postFileDetailsToPP(this.fileDesignerForm.value).subscribe(
       response => {
         console.log(response);
-        alert(response["message"]);
+        alert("Successfully Saved File Details");//response["message"]
         this.resetForm();
         this.ngOnInit();        
       },
