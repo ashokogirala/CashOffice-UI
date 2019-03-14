@@ -22,6 +22,7 @@ import { FileValidator } from '../../customvalidators';
   declarations: [DebitfileTemplateAssignmentComponent,
     FileDesignerComponent,
     PaypointComponent, FileValidator],
-  providers: [BsModalService, PagerService]
+  providers: [BsModalService, PagerService],
+  exports:[PaypointComponent]
 })
 export class PaypointMasterModule { }
