@@ -47,7 +47,7 @@ export class FileDesignerComponent {
       response => {
         this.fields = response;
       }, error => {
-        alert("Error at fetching field names")
+        alert("Error at fetching field names");
       }
     )
   }
@@ -147,7 +147,7 @@ export class FileDesignerComponent {
     this.ppService.postFileDetailsToPP(this.fileDesignerForm.value).subscribe(
       response => {
         console.log(response);
-        alert(response["message"]);
+        alert("Successfully Saved File Details");//response["message"]
         this.resetForm();
         this.ngOnInit();        
       },
