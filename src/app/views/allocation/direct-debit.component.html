@@ -19,7 +19,7 @@
               <div class="col-lg-6">
                                 
                 <div class = "form-group row">
-                  <label class="col-md-4 col-form-label" >PAYMENT MODE</label>
+                  <label class="col-md-4 col-form-label" >Payment Mode <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <select class="form-control" id="selectPaymentMode" formControlName = "paymentMode">
                       <option value="DDE" selected>DDE</option> 
@@ -27,21 +27,8 @@
                   </div>
                 </div>
 
-                        <!-- Input with Search Button -->
-                        <!-- <div class="form-group row">
-                            <label class="col-md-4 col-form-label">BANK NAME</label>
-                            <div class="col-md-6">
-                              <div class="input-group">
-                                <input id="input2-group2" name="input2-group2" class="form-control">
-                                <span class="input-group-append">
-                                  <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                                </span>
-                              </div>
-                            </div>
-                          </div> -->
-          
                 <div class = "form-group row">
-                  <label class="col-md-4 col-form-label" >BANK NAME</label>
+                  <label class="col-md-4 col-form-label" >Bank Name <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <select class="form-control" id="selectBank" 
                       formControlName = "bankName" [disabled]="disableForm">
@@ -51,7 +38,7 @@
                 </div>
                                       
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label">CREATION DATE</label>
+                  <label class="col-md-4 col-form-label">Creation Date</label>
                     <div class = "col-md-6">
                     <input class="form-control" id="date-input" type="date" 
                       formControlName = "creationDate" name="date-input" value = "{{ (bnkAccDetails.value.bankName.creation ) || '2018-09-01'}}">
@@ -59,7 +46,7 @@
                 </div>
                          
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label">MODIFIED DATE</label>
+                  <label class="col-md-4 col-form-label">Modified Date</label>
                   <div class = "col-md-6">
                     <input class="form-control" id="date-input" type="date" 
                       formControlName = "modifiedDate" name="date-input" value ="{{( bnkAccDetails.value.bankName.modified ) || '2018-09-30' }}"> 
@@ -72,14 +59,14 @@
               <div class="col-lg-6">
 
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label" for="text-input">BANK STATEMENT ID</label>
+                  <label class="col-md-4 col-form-label" for="text-input">Bank Statement ID</label>
                   <div class="col-md-6">
                     <input type="number" min="0" class="form-control" formControlName="bankStatementID">
                   </div>
                 </div>
                                   
                 <div class = "form-group row">
-                  <label class="col-md-4 col-form-label" >ACCOUNT NUMBER</label>
+                  <label class="col-md-4 col-form-label" >Account Number <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <input  class="form-control" id="disabled-input" type="text" 
                       formControlName = "accountNo" name="disabled-input"
@@ -87,8 +74,9 @@
                   </div>
                 </div>
                                     
+                <!--  <span class="text-danger">*</span> -->
                 <div class = "form-group row">
-                   <label class="col-md-4 col-form-label" >ACCOUNT DESCRIPTION</label>
+                   <label class="col-md-4 col-form-label">Account Description <span class="text-danger">*</span></label>
                     <div class = "col-md-6">
                       <input class="form-control" formControlName = "accountDesc"
                         value = {{bnkAccDetails.value.bankName.accountDesc}}>
@@ -125,14 +113,14 @@
               <div class="col-lg-6">
                        
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label" for="text-input">STATEMENT No.</label>
+                  <label class="col-md-4 col-form-label" for="text-input">Statement No. <span class="text-danger">*</span></label>
                   <div class="col-md-6">
                     <input type="number" min="0" class="form-control" formControlName="statementNo">
                   </div>
                 </div>
 
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label">DATE FROM</label>
+                  <label class="col-md-4 col-form-label">Date From <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <input class="form-control" id="date-input" type="date" 
                       formControlName = "fromDate" name="date-input" value = "2018-09-01">
@@ -140,21 +128,19 @@
                 </div>
 
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label" for="text-input">OPENING BALANCE</label>
+                  <label class="col-md-4 col-form-label" for="text-input">Opening Balance <span class="text-danger">*</span></label>
                   <div class="col-md-6">
                     <input type="number" class="form-control" formControlName="openingBalance">
                   </div>
                 </div>
                  
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label">REVERSAL PERIOD</label>
+                  <label class="col-md-4 col-form-label">Reversal Period</label>
                   <div class = "col-md-6">
                     <input class="form-control" id="date-input" type="date" 
                       formControlName = "reversalPeriod" name="date-input" value = "2018-04-30">
                     </div>
                 </div>
-
-                
 
               </div>
               
@@ -162,7 +148,7 @@
               <div class="col-lg-6">
 
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label" for="text-input">POSTING STATUS</label>
+                  <label class="col-md-4 col-form-label" for="text-input">Posting Status</label>
                   <div class="col-md-6">
                     <input class="form-control" formControlName="postingStatus"
                       value={{postingStatus}}>
@@ -170,7 +156,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label">DATE TO</label>
+                    <label class="col-md-4 col-form-label">Date To <span class="text-danger">*</span></label>
                    <div class = "col-md-6">
                      <input class="form-control" id="date-input" type="date" 
                       formControlName = "toDate" name="date-input" value = "2018-09-30">
@@ -178,23 +164,28 @@
                  </div>
                           
                  <div class="form-group row">
-                    <label class="col-md-4 col-form-label" for="text-input">CLOSING BALANCE:</label>
+                    <label class="col-md-4 col-form-label" for="text-input">Closing Balance <span class="text-danger">*</span></label>
                     <div class="col-md-6">
                       <input type="number" min="0" class="form-control" formControlName="closingBalance">
                     </div>
                   </div>
 
                   <br>
+
+                <!-- </div> -->
+
+                <!-- 3rd Column -->
+                <!-- <div class="col-lg-4"> -->
                             
                   <div class="form-group row">
-                      <label class="col-md-4 col-form-label" for="text-input">LOGIN NAME:</label>
+                      <label class="col-md-4 col-form-label" for="text-input">Login Name</label>
                       <div class="col-md-6">
                         <input class="form-control" formControlName="loginName" value={{loginName}}>
                       </div>
                     </div>
 
                     <div class="form-group row">
-                  <label class="col-md-4 col-form-label" for="text-input">BRANCH</label>
+                  <label class="col-md-4 col-form-label" for="text-input">Branch</label>
                   <div class="col-md-6">
                     <input class="form-control" formControlName="branch" value = {{branch}}>
                   </div>
@@ -236,14 +227,14 @@
                         <table class="table table-bordered table-hover">
                           <thead class="thead-light">
                             <tr>
-                              <th>TRANSACTION TYPE</th>
-                              <th>PERIOD</th>
-                              <th>PAYPOINT CODE</th>
-                              <th>PAYPOINT NAME</th>
-                              <th>STRIKE DATE</th>
-                              <th>GROSS AMOUNT</th>
-                              <th>ALLOCATED AMOUNT</th>
-                              <th>DELETE</th>
+                              <th>Transaction Type <span class="text-danger">*</span></th>
+                              <th>Period <span class="text-danger">*</span></th>
+                              <th>Paypoint Code <span class="text-danger">*</span></th>
+                              <th>Paypoint Name</th>
+                              <th>Strike Date <span class="text-danger">*</span></th>
+                              <th>Gross Amount <span class="text-danger">*</span></th>
+                              <th>Allocated Amount <span class="text-danger">*</span></th>
+                              <th></th>
                             </tr>
                           </thead>
                               
@@ -268,25 +259,23 @@
                                   <td><button type="submit" class="btn btn-md btn-primary" (click)="deleteCorrection()">
                                     <i class="fa fa-trash"></i></button></td>
                                 </tr>
+
+                                <tr>
+                                  <td>
+                                    <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
+                                  </td>
+                                  <td colspan="5" class="text-center font-weight-bold">Paypoint Total</td>
+                                  <td class="h6 text-right">{{totalDDE | number : '.2-2' }}</td>
+                                  <td></td>
+                                </tr>
                         
                               </tbody>
                             </table>
                             
                         </div>
 
-                        <br><br>
-                        
-                        <p class="h6 text-right">Paypoint Total: BWP {{totalDDE | number : '.2-2' }}</p>
-                            
-                        <div class="btn-toolbar">
-                          <div class="btn-group mr-2">
-                            <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
-                          </div>
-                        </div>
-                        
                     </form>
                     <!-- end: actual editable -->
-
                   </div>
                 </tab>
 
@@ -297,13 +286,13 @@
                         <table class="table table-bordered table-hover">
                           <thead class="thead-light">
                             <tr>
-                              <th>PERIOD</th>
-                              <th>POLICY CODE</th>
-                              <th>POLICY STATUS</th>
-                              <th>PAYOR</th>
-                              <th>EXPECTED PREMIUM</th>
-                              <th>ALLOCATED AMOUNT</th>
-                              <th>DELETE</th>
+                              <th>Period <span class="text-danger">*</span></th>
+                              <th>Policy Code <span class="text-danger">*</span></th>
+                              <th>Policy Status</th>
+                              <th>Payor</th>
+                              <th>Expected Premium</th>
+                              <th>Allocated Amount</th>
+                              <th></th>
                             </tr>
                           </thead>
                                   
@@ -327,21 +316,20 @@
                               <td><button type="submit" class="btn btn-md btn-primary" (click)="deleteCorrection()">
                                 <i class="fa fa-trash"></i></button></td>
                             </tr>
+
+                            <tr>
+                              <td>
+                                <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
+                              </td>
+                              <td colspan="4" class="text-center font-weight-bold">Expected Premium Total</td>
+                              <td class="h6 text-right">{{totalExclusions | number : '.2-2' }}</td>
+                              <td></td>
+                            </tr>
                           
                           </tbody>
                         </table>
                       </div>
-    
-                      <br><br>
-                      
-                      <p class="h6 text-right">Expected Premium Total: BWP {{totalExclusions | number : '.2-2' }}</p>
-                          
-                      <div class="btn-toolbar">
-                        <div class="btn-group mr-2">
-                          <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
-                        </div>
-                      </div>
-                            
+                                                  
                     </form>
                   </div>
                 </tab>
@@ -353,65 +341,63 @@
                           <table class="table table-bordered table-hover">
                             <thead class="thead-light">
                               <tr>
-                                <th>TRANSACTION TYPE</th>
-                                <th>PERIOD</th>
-                                <th>PAYPOINT CODE</th>
-                                <th>PAYPOINT NAME</th>
-                                <th>STRIKE DATE</th>
-                                <th>GROSS AMOUNT</th>
-                                <th>ALLOCATED AMOUNT</th>
-                                <th>DELETE</th>
+                                <th>Transaction Type <span class="text-danger">*</span></th>
+                                <th>Period <span class="text-danger">*</span></th>
+                                <th>Policy Code <span class="text-danger">*</span></th>
+                                <th>Policy Status</th>
+                                <th>Payor</th>
+                                <th>Expected Premium</th>
+                                <th>Allocated Amount</th>
+                                <th></th>
                               </tr>
                             </thead>
                                 
-                                <tbody formArrayName="corrections">
+                            <tbody formArrayName="corrections">
+                  
+                              <tr *ngFor="let correction of correctionForms.controls; let i=index" [formGroupName]="i">
+                                <td>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="corSelect" formControlName="corSelect" value={{i}}>
+                                    <label class="form-check-label" for="corSelect">
+                                        <input formControlName="corTransType"></label>
+                                  </div>
+                                </td>
                       
-                                  <tr *ngFor="let correction of correctionForms.controls; let i=index" [formGroupName]="i">
-                                    <td>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="corSelect" formControlName="corSelect" value={{i}}>
-                                        <label class="form-check-label" for="corSelect">
-                                            <input formControlName="corTransType"></label>
-                                      </div>
-                                    </td>
-                          
-                                    <td><input class="form-control" type="date" 
-                                      formControlName = "corPeriod" value = "2018-09-01"></td>
-                                    <td><input formControlName="corPartyID"></td>
-                                    <td><input formControlName="corPayerName"></td>
-                                    <td><input formControlName="corExpectedAmnt"></td>
-                                    <td><input formControlName="corPurpose"></td>
-                                    <td><input formControlName="corAllocatedAmnt"></td>
-                                    <td><button type="submit" class="btn btn-md btn-primary" (click)="deleteCorrection()">
-                                      <i class="fa fa-trash"></i></button></td>
-                                  </tr>
-                          
-                                </tbody>
-                              </table>
-                              
-                          </div>
-  
-                          <br><br>
-                          
-                          <p class="h6 text-right">Expected Reversals Total: BWP {{totalReversals | number : '.2-2' }}</p>
-                              
-                          <div class="btn-toolbar">
-                            <div class="btn-group mr-2">
-                              <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
-                            </div>
-                          </div>
+                                <td><input class="form-control" type="date" 
+                                  formControlName = "corPeriod" value = "2018-09-01"></td>
+                                <td><input formControlName="corPartyID"></td>
+                                <td><input formControlName="corPayerName"></td>
+                                <td><input formControlName="corExpectedAmnt"></td>
+                                <td><input formControlName="corPurpose"></td>
+                                <td><input formControlName="corAllocatedAmnt"></td>
+                                <td><button type="submit" class="btn btn-md btn-primary" (click)="deleteCorrection()">
+                                  <i class="fa fa-trash"></i></button></td>
+                              </tr>
 
-                          <br> <!-- FilePicker: Reversal File col-md-4 -->
+                              <tr>
+                                <td>
+                                  <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
+                                </td>
+                                <td colspan="5" class="text-center font-weight-bold">Expected Reversals Total</td>
+                                <td class="h6 text-right">{{totalReversals | number : '.2-2' }}</td>
+                                <td></td>
+                              </tr>
+                      
+                            </tbody>
+                          </table>
                           
-                          <!-- <div class="form-row justify-content-center"> -->
-                            <div class="form-group row justify-content-center">
-                              <label class="col-form-label"  for="uploadReversal">REVERSAL FILE</label>
-                              <div class="col-md-6">
-                                <input type="file" class="form-control-file" id="uploadReversal" 
-                                  style="border: 1px solid #000;" name="uploadReversal">
-                              </div>
-                            </div>
-                          <!-- </div> -->
+                      </div>
+  
+                      <br>
+                      
+                      <!-- FilePicker: Reversal File col-md-4 -->
+                      <div class="form-group row justify-content-center">
+                        <label class="col-form-label"  for="uploadReversal">REVERSAL FILE</label>
+                        <div class="col-md-6">
+                          <input type="file" class="form-control-file" id="uploadReversal" 
+                            style="border: 1px solid #000;" name="uploadReversal">
+                        </div>
+                      </div>
                                                     
                     </form>
                   </div>
@@ -424,11 +410,11 @@
                         <table class="table table-bordered table-hover">
                           <thead class="thead-light">
                             <tr>
-                              <th>TRANSACTION TYPE</th>
-                              <th>DESCRIPTION</th>
-                              <th>TRANSACTION DATE</th>
-                              <th>ALLOCATED AMOUNT</th>
-                              <th>DELETE</th>
+                              <th>Transaction Type <span class="text-danger">*</span></th>
+                              <th>Description</th>
+                              <th>Transaction Date <span class="text-danger">*</span></th>
+                              <th>Allocated Amount <span class="text-danger">*</span></th>
+                              <th></th>
                             </tr>
                           </thead>
                               
@@ -449,22 +435,21 @@
                               <td><button type="submit" class="btn btn-md btn-primary" (click)="deleteCorrection()">
                                 <i class="fa fa-trash"></i></button></td>
                             </tr>
+
+                            <tr>
+                                <td>
+                                  <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
+                                </td>
+                                <td colspan="2" class="text-center font-weight-bold">Sundry Total</td>
+                                <td class="h6 text-right">{{totalSundry | number : '.2-2' }}</td>
+                                <td></td>
+                              </tr>
                     
                           </tbody>
                         </table>
                             
                       </div>
-  
-                      <br><br>
-                      
-                      <p class="h6 text-right">Sundry Total: BWP {{totalSundry | number : '.2-2' }}</p>
-                          
-                      <div class="btn-toolbar">
-                        <div class="btn-group mr-2">
-                          <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
-                        </div>
-                      </div>
-                        
+                                                  
                     </form>
                   </div>
                 </tab>
@@ -477,11 +462,11 @@
                             <table class="table table-bordered table-hover">
                               <thead class="thead-light">
                                 <tr>
-                                  <th>TRANSACTION TYPE</th>
-                                  <th>DESCRIPTION</th>
-                                  <th>TRANSACTION DATE</th>
-                                  <th>ALLOCATED AMOUNT</th>
-                                  <th>DELETE</th>
+                                  <th>Transaction Type <span class="text-danger">*</span></th>
+                                  <th>Description</th>
+                                  <th>Period <span class="text-danger">*</span></th>
+                                  <th>Allocated Amount <span class="text-danger">*</span></th>
+                                  <th></th>
                                 </tr>
                               </thead>
                                   
@@ -502,22 +487,21 @@
                                   <td><button type="submit" class="btn btn-md btn-primary" (click)="deleteCorrection()">
                                     <i class="fa fa-trash"></i></button></td>
                                 </tr>
+
+                                <tr>
+                                    <td>
+                                      <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
+                                    </td>
+                                    <td colspan="2" class="text-center font-weight-bold">Unspecified Total</td>
+                                    <td class="h6 text-right">{{totalUnspecified | number : '.2-2' }}</td>
+                                    <td></td>
+                                  </tr>
                         
                               </tbody>
                             </table>
                                 
                           </div>
       
-                          <br><br>
-                          
-                          <p class="h6 text-right">Unspecified Total: BWP {{totalUnspecified | number : '.2-2' }}</p>
-                              
-                          <div class="btn-toolbar">
-                            <div class="btn-group mr-2">
-                              <button type="submit" class="btn btn-md btn-primary" (click)="addCorrection()">ADD</button> 
-                            </div>
-                          </div>
-                            
                         </form>
                     
                   </div>
@@ -536,27 +520,27 @@
             <div class= "col-lg-12">
                              
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary" (click)="save()">Save</button>
+                <button type="button" class="btn btn-md btn-primary" (click)="save()">SAVE</button>
               </div>
               
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary" (click)="search()">Search</button>
+                <button type="button" class="btn btn-md btn-primary" (click)="search()">SEARCH</button>
               </div>  
             
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary" (click)="clear()">Clear</button>
+                <button type="button" class="btn btn-md btn-primary" (click)="clear()">CLEAR</button>
               </div>
 
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary" (click)="cancel()">Cancel</button>
+                <button type="button" class="btn btn-md btn-primary" (click)="cancel()">CANCEL</button>
               </div>
 
               <div class="btn-group mr-2">
-                  <button type="button" class="btn btn-md btn-primary" (click)="exit()">Exit</button>
+                  <button type="button" class="btn btn-md btn-primary" (click)="exit()">EXIT</button>
               </div>
 
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary" (click)="print()">Print Bank Statement Details</button>
+                <button type="button" class="btn btn-md btn-primary" (click)="print()">PRINT BANK STATEMENT DETAILS</button>
               </div>
           
             </div>

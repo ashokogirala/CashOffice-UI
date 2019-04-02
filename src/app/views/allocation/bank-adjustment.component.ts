@@ -42,6 +42,8 @@ export class BankAdjustmentComponent {
     this.searchSucceeded = false ; // hide control buttons
   }
 
+  post(){}
+
   search(x){
     console.log('Searching ' + x) ; // dbg
 
@@ -98,16 +100,16 @@ export class BankAdjustmentComponent {
   ]
 
   // Dynamic Data - Unspecified Totals
-  unallocatedCRE: number =216.44;
-  unallocatedLRE: number =776.44;
-  unallocatedCRX: number =766.46;
-  unallocatedLRX: number =153.47;
+  unallocatedCRE: number ;
+  unallocatedLRE: number ;
+  unallocatedCRX: number ;
+  unallocatedLRX: number ;
 
   // Dynamic Data - Re-allocation Totals
-  reallocatedCRE: number =216.44;
-  reallocatedLRE: number =776.44;
-  reallocatedCRX: number =766.46;
-  reallocatedLRX: number =153.47;
+  reallocatedCRE: number ;
+  reallocatedLRE: number ;
+  reallocatedCRX: number ;
+  reallocatedLRX: number ;
 
   // bgn: editble table
 
@@ -150,5 +152,10 @@ corRPostingStatus: []
   }
 
   // end: editable table
+
+  // Dynamic Data - Branch/login-name
+  loginName = "user1" ;
+  branch = "Gaborone Head Office";
+  postingStatus = "UNPOSTED" ;
 
 }

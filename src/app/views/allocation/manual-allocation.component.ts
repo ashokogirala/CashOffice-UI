@@ -101,6 +101,9 @@ myForm: FormGroup;
 
     this.correctionForms.push(correction);
   }
+
+  propInfoSelect = new FormControl('') ; // checkbox for existing items under "Amount Allocated To"
+
   propInfo =[
     {
       pcode:25902873,period:"27/09/1991",pID:58956,pName:"Gregory Seal",eAmount:789965.56,purp:"NB",purpID:2,
@@ -122,6 +125,9 @@ myForm: FormGroup;
     // other form-processing code here:
   }
 
-  totalAllocatedAmount: number ;
+  showAllocatedPolicies(){}
+
+  totalAllocatedAmount: number = 432.11 ;
+  totalUnallocatedAmount: number = 345.97;
 
 }

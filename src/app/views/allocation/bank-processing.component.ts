@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'; 
-import { FormBuilder, FormArray } from '@angular/forms'; // form array things require FormGroup as well
 
+import { FormBuilder, FormArray } from '@angular/forms'; // form array things require FormGroup as well
 
 @NgModule({
   imports: [
@@ -17,6 +17,47 @@ import { FormBuilder, FormArray } from '@angular/forms'; // form array things re
   templateUrl: 'bank-processing.component.html'
 })
 export class BankProcessingComponent {
+
+  bnkAccDetails = new FormGroup({
+    paymentMode: new FormControl('', Validators.required),
+    bankName: new FormControl('', Validators.required),
+    creationDate: new FormControl({value:"2018-09-01", disabled: true}),
+    modifiedDate: new FormControl({value:"2018-09-30", disabled: true}),
+
+    bankStatementID: new FormControl('', Validators.pattern("^[0-9]*$") ),
+    accountNo: new FormControl({value:'', disabled: true}), // , Validators.required), // auto-filled
+    accountDesc: new FormControl({value:'', disabled: true}) // , Validators.required) // auto-filled
+
+  }) ;
+
+  // Array to hold dynamic data - Bank Account Details
+  banks = [
+    {bankName:"Bank ABC", accountNo:"ABC-2018", accountDesc: "Bank ABC Satellite", creation: "2013-01-01", 
+      modified: "2016-08-24"},
+    {bankName:"Bank Gaborone", accountNo:"BG-01234", accountDesc: " Bank GC Main Mall", creation: "2015-06-11", 
+      modified: "2018-03-31"},
+    {bankName:"Bank of Baroda", accountNo:"BB-43210", accountDesc: "Baroda RailPark ATM", creation: "2017-01-21", 
+      modified: "2014-10-10"}
+  ];
+
+  bnkStmtDetails = new FormGroup({
+    statementNo: new FormControl('', Validators.required),
+    fromDate: new FormControl("2018-09-01", Validators.required),
+    openingBalance: new FormControl('', Validators.required),
+    // reversalPeriod: new FormControl("2018-04-30"),
+    branch: new FormControl({value: '', disabled: true}),
+
+    // bankStatementID: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$") ] ),
+    postingStatus: new FormControl({value:'', disabled: true}),
+    toDate: new FormControl('2018-09-30', Validators.required),
+    closingBalance: new FormControl('', Validators.required),
+    loginName: new FormControl({value: '', disabled: true})
+  }) ;
+
+  // Dynamic Data - Branch/login-name
+  loginName = "user1" ;
+  branch = "Gaborone Head Office";
+  postingStatus = "UNPOSTED" ;
 
   BankStatInput = new FormGroup({
     paymentMode: new FormControl('', Validators.required),
@@ -41,6 +82,7 @@ export class BankProcessingComponent {
 
     // form-processing code
   }
+
   viewtable = false;
   editField: string;
   personList: Array<any> = [
@@ -101,4 +143,17 @@ export class BankProcessingComponent {
     this.correctionForms.removeAt(i)
   }
 
+  cancel(){}
+
+  clear(){}
+
+  exit(){}
+
+  save(){}
+
+  search(){}
+
+  printStatement(){}
+
+  totalPaypoint: number ;
 }

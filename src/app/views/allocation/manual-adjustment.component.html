@@ -7,7 +7,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <i class="fa fa-align-justify"></i> Record for Posting
+            <i class="fa fa-align-justify"></i>Record for Posting
           </div>
      
           <div class="card-body">
@@ -19,9 +19,9 @@
                   <thead class="thead-light">
                     <tr>
                       <th>ID</th>
-                      <th>POLICY CODE</th>
-                      <th>TRANSACTION TYPE</th>
-                      <th>POSTING STATUS</th>
+                      <th>Policy code</th>
+                      <th>Transaction type</th>
+                      <th>Posting status</th>
                     </tr>
                   </thead>
                   
@@ -74,7 +74,7 @@
               <div class="col-lg-6">
                 
                 <div class = "form-group row">
-                  <label class="col-md-4 col-form-label" >POLICY CODE</label>
+                  <label class="col-md-4 col-form-label" >Policy Code <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <input class="form-control" formControlName = "policyCode"
                       value={{item.policyCode}}>
@@ -82,7 +82,7 @@
                 </div>
                
                 <div class = "form-group row">
-                  <label class="col-md-4 col-form-label" >AMOUNT</label>
+                  <label class="col-md-4 col-form-label" >Amount <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <input class="form-control" formControlName = "amount" 
                       value={{item.amount}}>
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="form-group row">
-                   <label class="col-md-4 col-form-label">PERIOD</label>
+                   <label class="col-md-4 col-form-label">Period <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <input class="form-control" id="date-input" type="date" 
                      formControlName = "period" name="date-input" value = {{item.period}} required>
@@ -99,29 +99,27 @@
 
                 <!-- Transaction Type -->
                 <div class="form-group row">
-                  <label class="col-md-4 col-form-label">TRANSACTION TYPE</label>
+                  <label class="col-md-4 col-form-label">Transaction Type <span class="text-danger">*</span></label>
                   <div class="col-md-6">
-
-<div class="col-md-9 col-form-label">
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="transType" id="radio1" formControlName = "transType" value="allocation" [checked]="item.transType=='Premium Allocation'">
-      <label class="form-check-label" for="radio1">
-        Premium Allocation
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="transType" id="radio2" formControlName = "transType" value="reverse" [checked]="item.transType=='Reverse Offset'">
-      <label class="form-check-label" for="radio2">
-        Reverse Offset
-      </label>
-    </div>
-    
-  </div>
+                    <div class="col-md-9 col-form-label">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="transType" id="radio1" formControlName = "transType" value="allocation" [checked]="item.transType=='Premium Allocation'">
+                        <label class="form-check-label" for="radio1">
+                          Premium Allocation
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="transType" id="radio2" formControlName = "transType" value="reverse" [checked]="item.transType=='Reverse Offset'">
+                        <label class="form-check-label" for="radio2">
+                          Reverse Offset
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <div class = "form-group row">
-                  <label class="col-md-4 col-form-label" >COMMENTS</label>
+                  <label class="col-md-4 col-form-label" >Comments <span class="text-danger">*</span></label>
                   <div class = "col-md-6">
                     <textarea class="form-control" rows="2" formControlName = "comments" value={{item.comments}}></textarea>
                   </div>
@@ -133,7 +131,7 @@
               <div class="col-lg-6">  
             
                 <div class = "form-group row">
-                  <label class="col-md-4 col-form-label">BANK STATEMENT NUMBER (BOBI)</label>
+                  <label class="col-md-4 col-form-label">Bank Statement Number (BOBI)</label>
                     <div class = "col-md-6">
                       <input class="form-control" formControlName = "bnkStmtNo" value={{item.bobiRefNo}}>
                     </div>
