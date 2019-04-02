@@ -44,48 +44,7 @@ export const navItems = [
       }      
     ]
   },  
-  {
-    name: 'CashOfficeReports',
-    url: '/cashofficereports',
-    icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'Cashier-Assignment',
-        url: '/cashofficereports/cashier-assignment',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Collection-Branch',  //Name of the menu item
-        url: '/cashofficereports/collection-branch', //url at url bar
-        icon: 'icon-star'
-      },
-      {
-        name: 'Collection-App-Detail',
-        url: '/cashofficereports/collection-app-detail',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Collection-App-Summary',
-        url: '/cashofficereports/collection-app-summary',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Receipt-Listing',
-        url: '/cashofficereports/receipt-listing',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Deposit-Slip',
-        url: '/cashofficereports/deposit-slip',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Reprint-Receipt',
-        url: '/cashofficereports/reprint-receipt',
-        icon: 'icon-star'
-      }       
-    ]
-  },
+  
   {
     name: 'CashOfficeTransactions',
     url: '/cashofficetransaction',
@@ -140,6 +99,48 @@ export const navItems = [
     ]
   },
   {
+    name: 'CashOfficeReports',
+    url: '/cashofficereports',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Daily Receipt Listing',
+        url: '/cashofficereports/receipt-listing',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Reprint Receipt',
+        url: '/cashofficereports/reprint-receipt',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Reprint Deposit Slip',
+        url: '/cashofficereports/deposit-slip',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Collection By Branch',  
+        url: '/cashofficereports/collection-branch', 
+        icon: 'icon-star'
+      },
+      {
+        name: 'Collection By Application Detail',
+        url: '/cashofficereports/collection-app-detail',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Collection By Application Summary',
+        url: '/cashofficereports/collection-app-summary',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Cashier Assignment',
+        url: '/cashofficereports/cashier-assignment',
+        icon: 'icon-star'
+      } 
+    ]
+  },
+  {
     name: 'Pay Point Master',
     url: '/paypointmaster',
     icon: 'icon-puzzle',
@@ -183,41 +184,104 @@ export const navItems = [
       }      
     ]
   },
+{
+    name: 'Allocation',
+    url: '/allocation',
+    icon: 'icon-puzzle',
+    children:[
+      {
+        name: 'Electornic Allocation',
+        url: '/allocation/electronic',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Manual Allocation',
+        url: '/allocation/manual-allocation',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Direct Debit Processing',
+        url: '/allocation/direct-debit',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Bank Stop Order Processing',
+        url: '/allocation/bank-processing',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Bank Statement Posting',
+        url: '/allocation/bank-posting',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'MisAllocation Correction',
+        url: '/allocation/misallocation-correction',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Paypoint Misallocation',
+        url: '/allocation/paypoint-misallocation',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Bank Statement Adjustment Vocher',
+        url: '/allocation/bank-adjustment',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Manual Adjustment Vocher',
+        url: '/allocation/manual-adjustment',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Paypoint Collection History',
+        url: '/allocation/paypoint-history',
+        icon: 'icon-star'        
+      },
+      {
+        name: 'Partial Misallocation Correction',
+        url: '/allocation/partial-correction',
+        icon: 'icon-star'        
+      },
+    ] 
+},  
+
   {
     name: 'PayPoint Reports',
     url: '/paypoint-reports',
     icon: 'icon-bell',
     children: [
       {
-        name: 'Overs And Unders',
+        name: 'Overs and Unders',
         url: '/paypoint-reports/oversandunders',
-        //icon: 'icon-bell'
+        icon: 'icon-bell'
       },
   
     {
       name: 'Rejections',
       url: '/paypoint-reports/rejections',
-      //icon: 'icon-bell'
+      icon: 'icon-bell'
     },
     {
       name: 'PayPoint Summary',
       url: '/paypoint-reports/paypoint-summary',
-      //icon: 'icon-bell'
+      icon: 'icon-bell'
     },
     {
-      name: 'UnAllocated Cash Reciepts',
+      name: 'Unallocated Cash Reciepts',
       url: '/paypoint-reports/unallocated-cashReciepts',
-      //icon: 'icon-bell'
+      icon: 'icon-bell'
     },
     { 
       name: 'Unmatched Credits',
       url: '/paypoint-reports/unmatchedCredit',
-      //icon: 'icon-bell'
+      icon: 'icon-bell'
     },
     {
       name: 'Reciept Allocation Status',
       url: '/paypoint-reports/reciept-allocation-status',
-      //icon: 'icon-bell'
+      icon: 'icon-bell'
     }
     ,
     {
@@ -384,4 +448,5 @@ export const navItems = [
   }
 
 ];
-export const apiURL="http://192.168.1.158:9090/CashOffice-Test/api";
+//export const apiURL="http://192.168.1.158:9090/CashOffice-Test/api";
+export const apiURL="http://localhost:9090/CashOffice-Test/api";
