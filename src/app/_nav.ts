@@ -45,6 +45,104 @@ export const navItems = [
     ]
   }, 
   {
+    name: 'CashOfficeTransactions',
+    url: '/cashofficetransaction',
+    icon: 'icon-puzzle',
+    children: [
+        
+    {
+      name: 'Cash Office Activity',
+      url: '/cashofficetransaction/cashofficeactivity',
+      icon: 'icon-star'
+    },
+    {
+      name: 'Cash Till Activity',
+      url: '/cashofficetransaction/cashtillactivity',
+      icon: 'icon-star'
+    },
+    {
+      name: 'Payment Receipt',
+      url: '/cashofficetransaction/paymentreceipt',
+      icon: 'icon-star'
+    },
+      {
+        name: 'Query Receipt',
+        url: '/cashofficetransaction/QueryReceipt',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Cancel Payment Receipt',
+        url: '/cashofficetransaction/cancelpaymentreceipt',
+        icon: 'icon-star'
+      },
+    
+    {
+      name: 'Approve Receipt Cancellation',
+      url: '/cashofficetransaction/Approvecancellation',
+      icon: 'icon-star'
+    },
+    {
+      name: 'Print Bank Deposit Slip',
+      url: '/cashofficetransaction/PrintSlip',
+      icon: 'icon-star'
+    },
+   
+    {
+      name: 'Receipt Posting',
+      url: '/cashofficetransaction/ReceiptPosting',
+      icon: 'icon-star'
+    },
+    
+      {
+        name: 'Secured Loan Enquiry',
+        url: '/cashofficetransaction/secureloanenquire',
+        icon: 'icon-star'
+      }             
+    ]
+  },
+  {
+    name: 'CashOfficeReports',
+    url: '/cashofficereports',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Cashier-Assignment',
+        url: '/cashofficereports/cashier-assignment',
+        icon: 'icon-star'
+      }
+,      {
+        name: 'Collection-Branch',  //Name of the menu item
+        url: '/cashofficereports/collection-branch', //url at url bar
+        icon: 'icon-star'
+      },
+      {
+        name: 'Collection-App-Detail',
+        url: '/cashofficereports/collection-app-detail',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Collection-App-Summary',
+        url: '/cashofficereports/collection-app-summary',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Receipt-Listing',
+        url: '/cashofficereports/receipt-listing',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Deposit-Slip',
+        url: '/cashofficereports/deposit-slip',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Reprint-Receipt',
+        url: '/cashofficereports/reprint-receipt',
+        icon: 'icon-star'
+      }       
+    ]
+  },
+  {
     name: 'Allocation',
     url: '/allocation',
     icon: 'icon-puzzle',
@@ -108,104 +206,8 @@ export const navItems = [
       
     ]  
  },
-   {
-    name: 'CashOfficeReports',
-    url: '/cashofficereports',
-    icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'Cashier-Assignment',
-        url: '/cashofficereports/cashier-assignment',
-        icon: 'icon-star'
-      }
-,      {
-        name: 'Collection-Branch',  //Name of the menu item
-        url: '/cashofficereports/collection-branch', //url at url bar
-        icon: 'icon-star'
-      },
-      {
-        name: 'Collection-App-Detail',
-        url: '/cashofficereports/collection-app-detail',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Collection-App-Summary',
-        url: '/cashofficereports/collection-app-summary',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Receipt-Listing',
-        url: '/cashofficereports/receipt-listing',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Deposit-Slip',
-        url: '/cashofficereports/deposit-slip',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Reprint-Receipt',
-        url: '/cashofficereports/reprint-receipt',
-        icon: 'icon-star'
-      }       
-    ]
-  },
-  {
-    name: 'CashOfficeTransactions',
-    url: '/cashofficetransaction',
-    icon: 'icon-puzzle',
-    children: [
-        
-    {
-      name: 'Cash Office Activity',
-      url: '/cashofficetransaction/cashofficeactivity',
-      icon: 'icon-star'
-    },
-    {
-      name: 'Cash Till Activity',
-      url: '/cashofficetransaction/cashtillactivity',
-      icon: 'icon-star'
-    },
-    {
-      name: 'Payment Receipt',
-      url: '/cashofficetransaction/paymentreceipt',
-      icon: 'icon-star'
-    },
-      {
-        name: 'Query Receipt',
-        url: '/cashofficetransaction/QueryReceipt',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Cancel Payment Receipt',
-        url: '/cashofficetransaction/cancelpaymentreceipt',
-        icon: 'icon-star'
-      },
-    
-    {
-      name: 'Approve Receipt Cancellation',
-      url: '/cashofficetransaction/Approvecancellation',
-      icon: 'icon-star'
-    },
-    {
-      name: 'Print Bank Deposit Slip',
-      url: '/cashofficetransaction/PrintSlip',
-      icon: 'icon-star'
-    },
    
-    {
-      name: 'Receipt Posting',
-      url: '/cashofficetransaction/ReceiptPosting',
-      icon: 'icon-star'
-    },
-    
-      {
-        name: 'Secured Loan Enquiry',
-        url: '/cashofficetransaction/secureloanenquire',
-        icon: 'icon-star'
-      }             
-    ]
-  },
+  
   {
     name: 'Pay Point Master',
     url: '/paypointmaster',
@@ -254,7 +256,7 @@ export const navItems = [
   {
     name: 'PayPoint Reports',
     url: '/paypoint-reports',
-    icon: 'icon-bell',
+    icon: 'icon-puzzle',
     children: [
       {
         name: 'Overs And Unders',
@@ -313,6 +315,49 @@ export const navItems = [
   ]
   },
   {
+    name: 'Admin',
+    url: '/admin',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'User Management',
+        url: '/admin/user-management',
+        //icon: 'icon-bell'
+      },  
+    {
+      name: 'Assign Role',
+      url: '/admin/assign-role',
+      //icon: 'icon-bell'
+    },
+    {
+      name: 'Group Master',
+      url: '/admin/group-master',
+      //icon: 'icon-bell'
+    },
+    {
+      name: 'Page Access',
+      url: '/admin/page-access',
+      //icon: 'icon-bell'
+    },
+    { 
+      name: 'Reset Password',
+      url: '/admin/reset-password',
+      //icon: 'icon-bell'
+    }    
+  ]
+  },
+  {
+    name: 'User',
+    url: '/user',
+    icon: 'icon-puzzle',
+    children: [
+      {
+        name: 'Password Management',
+        url: '/user/pass-management',
+        //icon: 'icon-bell'
+      }  ]
+  },
+  /*{
     name: 'Charts',
     url: '/charts',
     icon: 'icon-pie-chart'
@@ -374,7 +419,7 @@ export const navItems = [
         icon: 'icon-bell'
       }
     ]
-  },
+  }, 
   {
     name: 'Widgets',
     url: '/widgets',
@@ -383,7 +428,7 @@ export const navItems = [
       variant: 'info',
       text: 'NEW'
     }
-  },
+  },*/
   {
     divider: true
   },
