@@ -11,16 +11,16 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AllocationRoutingModule } from './allocation-routing.module';
 
 // Cash Office - ALLOCATION Module
-import { ElectronicAllocationComponent } from './electronic-allocation.component';
-import { BankStatementAdjustmentVoucherComponent} from './bank-statement-adjustment-voucher.component';
-import { BankStatementPostingComponent } from './bank-statement-posting.component';
-import { BankStopOrderProcessingComponent } from './bank-stop-order-processing.component';
-import { DirectDebitProcessingComponent } from './direct-debit-processing.component' ;
-import { ManualAdjustmentVoucherComponent } from './manual-adjustment-voucher.component' ;
+import { ElectronicComponent } from './electronic.component';
+import { BankAdjustmentComponent } from './bank-adjustment.component';
+import { BankPostingComponent } from './bank-posting.component';
+import { BankProcessingComponent } from './bank-processing.component';
+import { DirectDebitComponent } from './direct-debit.component' ;
+import { ManualAdjustmentComponent } from './manual-adjustment.component' ;
 import { ManualAllocationComponent } from './manual-allocation.component' ;
 import { MisallocationCorrectionComponent } from './misallocation-correction.component' ;
-import { PartialMisallocationCorrectionComponent } from './partial-misallocation-correction.component' ;
-import { PaypointCollectionHistoryComponent } from './paypoint-collection-history.component';
+import { PartialCorrectionComponent } from './partial-correction.component' ;
+import { PaypointHistoryComponent } from './paypoint-history.component';
 import { PaypointMisallocationComponent } from './paypoint-misallocation.component';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -34,16 +34,16 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     , TabsModule
   ],
   declarations: [
-    ElectronicAllocationComponent,
-    BankStatementAdjustmentVoucherComponent,
-    BankStatementPostingComponent,
-    BankStopOrderProcessingComponent,
-    DirectDebitProcessingComponent,
-    ManualAdjustmentVoucherComponent,
+    ElectronicComponent,
+    BankAdjustmentComponent,
+    BankPostingComponent,
+    BankProcessingComponent,
+    DirectDebitComponent,
+    ManualAdjustmentComponent,
     ManualAllocationComponent,
     MisallocationCorrectionComponent,
-    PartialMisallocationCorrectionComponent,
-    PaypointCollectionHistoryComponent,
+    PartialCorrectionComponent,
+    PaypointHistoryComponent,
     PaypointMisallocationComponent
   ]
 })

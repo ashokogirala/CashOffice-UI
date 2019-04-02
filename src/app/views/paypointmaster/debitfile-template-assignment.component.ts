@@ -145,31 +145,29 @@ export class DebitfileTemplateAssignmentComponent {
     return input;
   }
   onSubmit() {
-    if (this.dbtFileTmpltAssignment.get('pensionOnly').value == null ||
-    this.dbtFileTmpltAssignment.get('pensionOnly').value === undefined) {
-      this.dbtFileTmpltAssignment.controls['pensionOnly'].setValue(false);
+    if (this.dbtFileTmpltAssignment.get('pensionOnly').value == null) {
+      this.dbtFileTmpltAssignment.controls['enabled'].setValue(false);
     }
-    if (this.dbtFileTmpltAssignment.get('otherPremOnly').value === undefined ||
-    this.dbtFileTmpltAssignment.get('otherPremOnly').value == null) {
-      this.dbtFileTmpltAssignment.controls['otherPremOnly'].setValue(false);
+    if (this.dbtFileTmpltAssignment.get('otherPremOnly').value == null) {
+      this.dbtFileTmpltAssignment.controls['enabled'].setValue(false);
     }
     const formModel = this.prepareSave();
     //console.log(formModel);
     this.ppservice.assignTemplate(formModel).subscribe(
       (response) => {
         alert("template is successfully assigned");
-        console.log(response);
+        //console.log(JSON.parse(response));
         this.resetForm();
       },
       (error) => {
         //this.dbtFileTmpltAssignment.reset(this.dbtFileTmpltAssignment.value);
         this.resetForm();
-        alert(error.error.message + " duplicate file names are not allowed");
+        console.log(error.message);
       }
     ) 
   }  
   resetForm(): any {
-  this.dbtFileTmpltAssignment.reset();
+    this.dbtFileTmpltAssignment.reset();
   this.constantChecked = false;
   this.periodChecked = false;
   this.extensionChecked = false;

@@ -43,101 +43,167 @@ export const navItems = [
         icon: 'icon-star'
       }      
     ]
-  },  
-  
+  }, 
   {
-    name: 'CashOfficeTransactions',
-    url: '/cashofficetransaction',
+    name: 'Allocation',
+    url: '/allocation',
     icon: 'icon-puzzle',
     children: [
       {
-        name: 'Query-Reciept',
-        url: '/cashofficetransaction/QueryReciept',
+        name: 'Electronic Allocation',
+        url: '/allocation/electronic',
         icon: 'icon-star'
       },
       {
-        name: 'CancelReciept',
-        url: '/cashofficetransaction/CancelReciept',
+        name: 'Manual Allocation',
+        url: '/allocation/manual-allocation',
         icon: 'icon-star'
       },
+      {
+        name: 'Direct Debit Processing',
+        url: '/allocation/direct-debit',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Bank Stop Order Processing',
+        url: '/allocation/bank-processing',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Bank Statement Posting',
+        url: '/allocation/bank-posting',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Misallocation correction',
+        url: '/allocation/missallocation-correction',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Pay Point Misallocation',
+        url: '/allocation/paypoint-missallocation',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Bank Statement Adjustment Voucher',
+        url: '/allocation/bank-adjustment',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Manual Adjustment Voucher',
+        url: '/allocation/manual-adjustment',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Pay Point Collection History',
+        url: '/allocation/paypoint-history',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Partial Misallocation Correction',
+        url: '/allocation/partial-correction',
+        icon: 'icon-star'
+      }
       
-    {
-      name: 'cashofficeactivity',
-      url: '/cashofficetransaction/cashofficeactivity',
-      icon: 'icon-star'
-    },
-    {
-      name: 'Approvecancellation',
-      url: '/cashofficetransaction/Approvecancellation',
-      icon: 'icon-star'
-    },
-    {
-      name: 'paymentreceipt',
-      url: '/cashofficetransaction/paymentreceipt',
-      icon: 'icon-star'
-    },
-    {
-      name: 'cashtillactivity',
-      url: '/cashofficetransaction/cashtillactivity',
-      icon: 'icon-star'
-    },
-    {
-      name: 'ReceiptPosting',
-      url: '/cashofficetransaction/ReceiptPosting',
-      icon: 'icon-star'
-    },
-      {
-        name: 'PrintSlip',
-        url: '/cashofficetransaction/PrintSlip',
-        icon: 'icon-star'
-      },
-      {
-        name: 'secureloanenquire',
-        url: '/cashofficetransaction/secureloanenquire',
-        icon: 'icon-star'
-      }             
-    ]
-  },
-  {
+      
+    ]  
+ },
+   {
     name: 'CashOfficeReports',
     url: '/cashofficereports',
     icon: 'icon-puzzle',
     children: [
       {
-        name: 'Daily Receipt Listing',
-        url: '/cashofficereports/receipt-listing',
+        name: 'Cashier-Assignment',
+        url: '/cashofficereports/cashier-assignment',
+        icon: 'icon-star'
+      }
+,      {
+        name: 'Collection-Branch',  //Name of the menu item
+        url: '/cashofficereports/collection-branch', //url at url bar
         icon: 'icon-star'
       },
       {
-        name: 'Reprint Receipt',
-        url: '/cashofficereports/reprint-receipt',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Reprint Deposit Slip',
-        url: '/cashofficereports/deposit-slip',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Collection By Branch',  
-        url: '/cashofficereports/collection-branch', 
-        icon: 'icon-star'
-      },
-      {
-        name: 'Collection By Application Detail',
+        name: 'Collection-App-Detail',
         url: '/cashofficereports/collection-app-detail',
         icon: 'icon-star'
       },
       {
-        name: 'Collection By Application Summary',
+        name: 'Collection-App-Summary',
         url: '/cashofficereports/collection-app-summary',
         icon: 'icon-star'
       },
       {
-        name: 'Cashier Assignment',
-        url: '/cashofficereports/cashier-assignment',
+        name: 'Receipt-Listing',
+        url: '/cashofficereports/receipt-listing',
         icon: 'icon-star'
-      } 
+      },
+      {
+        name: 'Deposit-Slip',
+        url: '/cashofficereports/deposit-slip',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Reprint-Receipt',
+        url: '/cashofficereports/reprint-receipt',
+        icon: 'icon-star'
+      }       
+    ]
+  },
+  {
+    name: 'CashOfficeTransactions',
+    url: '/cashofficetransaction',
+    icon: 'icon-puzzle',
+    children: [
+        
+    {
+      name: 'Cash Office Activity',
+      url: '/cashofficetransaction/cashofficeactivity',
+      icon: 'icon-star'
+    },
+    {
+      name: 'Cash Till Activity',
+      url: '/cashofficetransaction/cashtillactivity',
+      icon: 'icon-star'
+    },
+    {
+      name: 'Payment Receipt',
+      url: '/cashofficetransaction/paymentreceipt',
+      icon: 'icon-star'
+    },
+      {
+        name: 'Query Receipt',
+        url: '/cashofficetransaction/QueryReceipt',
+        icon: 'icon-star'
+      },
+      {
+        name: 'Cancel Payment Receipt',
+        url: '/cashofficetransaction/cancelpaymentreceipt',
+        icon: 'icon-star'
+      },
+    
+    {
+      name: 'Approve Receipt Cancellation',
+      url: '/cashofficetransaction/Approvecancellation',
+      icon: 'icon-star'
+    },
+    {
+      name: 'Print Bank Deposit Slip',
+      url: '/cashofficetransaction/PrintSlip',
+      icon: 'icon-star'
+    },
+   
+    {
+      name: 'Receipt Posting',
+      url: '/cashofficetransaction/ReceiptPosting',
+      icon: 'icon-star'
+    },
+    
+      {
+        name: 'Secured Loan Enquiry',
+        url: '/cashofficetransaction/secureloanenquire',
+        icon: 'icon-star'
+      }             
     ]
   },
   {
@@ -157,6 +223,7 @@ export const navItems = [
       }      
     ]
   },
+ 
   {
     name: 'Pay Point Transaction',
     url: '/paypointtransaction',
@@ -184,104 +251,41 @@ export const navItems = [
       }      
     ]
   },
-{
-    name: 'Allocation',
-    url: '/allocation',
-    icon: 'icon-puzzle',
-    children:[
-      {
-        name: 'Electornic Allocation',
-        url: '/allocation/electronic',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Manual Allocation',
-        url: '/allocation/manual-allocation',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Direct Debit Processing',
-        url: '/allocation/direct-debit',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Bank Stop Order Processing',
-        url: '/allocation/bank-processing',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Bank Statement Posting',
-        url: '/allocation/bank-posting',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'MisAllocation Correction',
-        url: '/allocation/misallocation-correction',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Paypoint Misallocation',
-        url: '/allocation/paypoint-misallocation',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Bank Statement Adjustment Vocher',
-        url: '/allocation/bank-adjustment',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Manual Adjustment Vocher',
-        url: '/allocation/manual-adjustment',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Paypoint Collection History',
-        url: '/allocation/paypoint-history',
-        icon: 'icon-star'        
-      },
-      {
-        name: 'Partial Misallocation Correction',
-        url: '/allocation/partial-correction',
-        icon: 'icon-star'        
-      },
-    ] 
-},  
-
   {
     name: 'PayPoint Reports',
     url: '/paypoint-reports',
     icon: 'icon-bell',
     children: [
       {
-        name: 'Overs and Unders',
+        name: 'Overs And Unders',
         url: '/paypoint-reports/oversandunders',
-        icon: 'icon-bell'
+        //icon: 'icon-bell'
       },
   
     {
       name: 'Rejections',
       url: '/paypoint-reports/rejections',
-      icon: 'icon-bell'
+      //icon: 'icon-bell'
     },
     {
       name: 'PayPoint Summary',
       url: '/paypoint-reports/paypoint-summary',
-      icon: 'icon-bell'
+      //icon: 'icon-bell'
     },
     {
-      name: 'Unallocated Cash Reciepts',
+      name: 'UnAllocated Cash Reciepts',
       url: '/paypoint-reports/unallocated-cashReciepts',
-      icon: 'icon-bell'
+      //icon: 'icon-bell'
     },
     { 
       name: 'Unmatched Credits',
       url: '/paypoint-reports/unmatchedCredit',
-      icon: 'icon-bell'
+      //icon: 'icon-bell'
     },
     {
       name: 'Reciept Allocation Status',
       url: '/paypoint-reports/reciept-allocation-status',
-      icon: 'icon-bell'
+      //icon: 'icon-bell'
     }
     ,
     {
@@ -309,43 +313,11 @@ export const navItems = [
   ]
   },
   {
-    name: 'Admin',
-    url: '/admin',
-    icon: 'icon-puzzle',
-    children: [
-      {
-        name: 'User Management',
-        url: '/admin/user-management',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Assign role',
-        url: '/admin/assign-role',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Group Master',
-        url: '/admin/group-master',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Page Access',
-        url: '/admin/page-access',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Reset Password',
-        url: '/admin/reset-password',
-        icon: 'icon-star'
-      }      
-    ]
-  },  
-
-  {
     name: 'Charts',
     url: '/charts',
     icon: 'icon-pie-chart'
   },
+
   {
     name: 'Icons',
     url: '/icons',
@@ -446,7 +418,6 @@ export const navItems = [
       }
     ]
   }
-
+ 
 ];
-//export const apiURL="http://192.168.1.158:9090/CashOffice-Test/api";
-export const apiURL="http://localhost:9090/CashOffice-Test/api";
+export const apiURL="http://192.168.1.158:9090/CashOffice-Test/api";  

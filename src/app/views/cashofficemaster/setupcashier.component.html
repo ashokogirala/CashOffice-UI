@@ -1,10 +1,10 @@
 <style>
   .col-form-label.required:after {
-     color: rgb(250, 4, 4);
-     content: "*";
-     position: absolute;
-     margin-left: 8px;
-     top: 7px;
+    color: rgb(250, 4, 4);
+    content: "*";
+    position: absolute;
+    margin-left: 8px;
+    top: 7px;
   }
 </style>
 <div class="animated fadeIn">
@@ -38,7 +38,8 @@
               <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
                 <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
               </li>
-              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item active">
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+                class="page-item active">
                 <a class="page-link" (click)="setPage(page)">{{page}}</a>
               </li>
               <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
@@ -92,7 +93,7 @@
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="disabled-input">Branch Name:</label>
               <div class="col-md-3">
-                <input type="text" class="form-control" formControlName="branchName" readonly>
+                <input type="text" class="form-control" formControlName="branchName" required>
               </div>
             </div>
           </div>
@@ -104,8 +105,9 @@
                 <button type="submit" class="btn btn-md btn-primary" [disabled]="!createCashier.valid">Save</button>
               </div>
               <div class="btn-group mr-2">
-                <button type="button" class="btn btn-md btn-primary" [disabled]="!createCashier.controls['cashierCode'].valid"
-                 (click)="search(createCashier.controls['cashierCode'].value)">Find</button>
+                <button type="button" class="btn btn-md btn-primary"
+                  [disabled]="!createCashier.controls['cashierCode'].valid"
+                  (click)="search(createCashier.controls['cashierCode'].value)">Find</button>
               </div>
               <div class="btn-group mr-2">
                 <button type="button" class="btn btn-md btn-primary" (click)="clear()">Clear</button>

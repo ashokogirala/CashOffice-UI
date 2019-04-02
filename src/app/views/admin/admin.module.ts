@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 // import { ButtonsComponent } from './buttons.component';
@@ -22,7 +22,7 @@ import { UserManagementComponent } from './user-management.component' ;
     CommonModule,
     AdminRoutingModule,
     BsDropdownModule.forRoot(),
-    FormsModule, ReactiveFormsModule
+    FormsModule
   ],
   declarations: [
     // ButtonsComponent,

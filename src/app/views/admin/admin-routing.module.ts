@@ -15,35 +15,35 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'assign-role',
+        path: 'assignrole',
         component: AssignRoleComponent,
         data: {
           title: 'Assign Role'
         }
       },
       {
-        path: 'group-master',
+        path: 'groupmaster',
         component: GroupMasterComponent,
         data: {
           title: 'Group Master'
         }
       },
       {
-        path: 'page-access',
+        path: 'pageaccess',
         component: PageAccessComponent,
         data: {
           title: 'Page Access'
         }
       },
       {
-        path: 'reset-password',
+        path: 'resetpassword',
         component: ResetPasswordComponent,
         data: {
           title: 'Reset Password'
         }
       },
       {
-        path: 'user-management',
+        path: 'usermanagement',
         component: UserManagementComponent,
         data: {
           title: 'User Management' 

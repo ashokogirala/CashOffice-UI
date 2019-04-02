@@ -99,7 +99,7 @@ export class AssignCashierComponent {
     if (this.assignCashierForm.get('isSenior').value == null) {
       this.assignCashierForm.controls['enabled'].setValue(false);
     }
-    this.http.post(apiURL+'/cashiers/assignCashier', this.assignCashierForm.value)
+    this.http.post('http://192.168.1.158:9090/CashOffice-Test/api/cashiers/assignCashier', this.assignCashierForm.value)
       .subscribe(
         data => {
           console.log(data);

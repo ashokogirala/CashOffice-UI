@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ElectronicAllocationComponent } from './electronic-allocation.component';
-import { BankStatementAdjustmentVoucherComponent} from './bank-statement-adjustment-voucher.component';
-import { BankStatementPostingComponent } from './bank-statement-posting.component';
-import { BankStopOrderProcessingComponent } from './bank-stop-order-processing.component';
-import { DirectDebitProcessingComponent } from './direct-debit-processing.component' ;
-import { ManualAdjustmentVoucherComponent } from './manual-adjustment-voucher.component' ;
+import { BankAdjustmentComponent } from './bank-adjustment.component';
+import { BankPostingComponent } from './bank-posting.component';
+import { ElectronicComponent } from './electronic.component' ;
+import { BankProcessingComponent } from './bank-processing.component';
+import { DirectDebitComponent } from './direct-debit.component';
+import { ManualAdjustmentComponent } from './manual-adjustment.component' ;
 import { ManualAllocationComponent } from './manual-allocation.component' ;
 import { MisallocationCorrectionComponent } from './misallocation-correction.component' ;
-import { PartialMisallocationCorrectionComponent } from './partial-misallocation-correction.component' ;
-import { PaypointCollectionHistoryComponent } from './paypoint-collection-history.component';
+import { PartialCorrectionComponent } from './partial-correction.component' ;
+import { PaypointHistoryComponent } from './paypoint-history.component';
 import { PaypointMisallocationComponent } from './paypoint-misallocation.component';
-
 
 const routes: Routes = [
   {
@@ -21,45 +20,45 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'bank-statement-adjustment-voucher',
-        component: BankStatementAdjustmentVoucherComponent,
+        path: 'bank-adjustment',
+        component: BankAdjustmentComponent,
         data: {
-          title: 'Bankn Statement Adjustment voucher'
+          title: 'Bank Statement Re-Allocation'
         }        
       },
       {
-        path: 'bank-statement-posting',
-        component: BankStatementPostingComponent, 
+        path: 'bank-posting',
+        component: BankPostingComponent, 
         data: {
           title: 'Bank Statement Posting'
         }
       },
       {
-        path: 'bank-stop-order-processing',
-        component: BankStopOrderProcessingComponent,
+        path: 'bank-processing',
+        component: BankProcessingComponent,
         data: {
           title: 'Bank Stop Order Processing'
         }
       },
       {
-        path: 'direct-debit-processing',
-        component: DirectDebitProcessingComponent,
+        path: 'direct-debit',
+        component: DirectDebitComponent,
         data: { 
           title: 'Direct Debit Processing'
         }
       },
       {
-        path: 'electronic-allocation',
-        component:ElectronicAllocationComponent,
+        path: 'electronic',
+        component:ElectronicComponent,
         data: {
           title: 'Electronic Allocation'
         }
       },
       {
-        path: 'manual-adjustment-voucher',
-        component: ManualAdjustmentVoucherComponent,
+        path: 'manual-adjustment',
+        component: ManualAdjustmentComponent,
         data: {
-          title: 'Manual Adjustment Voucher'
+          title: 'Manual Adjustment'
         }        
       },
       {
@@ -70,21 +69,21 @@ const routes: Routes = [
         }        
       },    
       {
-        path: 'misallocation-correction',
+        path: 'correction',
         component: MisallocationCorrectionComponent,
         data: {
           title: 'MisAllocation Correction'
         }        
       },
       {
-        path: 'partial-misallocation-correction',
-        component: PartialMisallocationCorrectionComponent,
+        path: 'partial-correction',
+        component: PartialCorrectionComponent,
         data: { title: 'Partial MisAllocation Correction' }
         
       },
       {
-        path: 'paypoint-collection-history',
-        component: PaypointCollectionHistoryComponent,
+        path: 'paypoint-history',
+        component: PaypointHistoryComponent,
         data: { title: 'PayPoint Collection History' }       
       },
       {

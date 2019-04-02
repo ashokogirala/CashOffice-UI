@@ -66,22 +66,19 @@ export const routes: Routes = [
         path: 'cashofficetransaction',
         loadChildren: './views/cashofficetransaction/cashofficetransaction.module#CashOfficeTransactionMasterModule'
       },
-      {
+      /*{
         path: 'paypointtransaction',
         loadChildren: './views/paypointtransaction/paypointtransaction.module#PaypointTransactionModule'
-      },
+      },*/
+      {
+        path: 'paypoint-reports',
+        loadChildren: './views/paypointreports/paypoint-reports.module#PaypointReportsModule'
+      }, 
       {
         path: 'allocation',
         loadChildren: './views/allocation/allocation.module#AllocationModule'
       },
-      {
-        path: 'paypoint-reports',
-        loadChildren: './views/paypointreports/paypoint-reports.module#PaypointReportsModule'
-      },
-      {
-        path: 'admin',
-        loadChildren: './views/admin/admin.module#AdminModule'
-      },
+     
       {
         path: 'charts',
         loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
@@ -90,6 +87,7 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
+     
       {
         path: 'icons',
         loadChildren: './views/icons/icons.module#IconsModule'
@@ -101,7 +99,8 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      }
+      },
+     
     ]
   }
 ];

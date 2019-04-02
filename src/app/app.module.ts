@@ -64,7 +64,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    
   ],
   providers: [{
     provide: LocationStrategy,

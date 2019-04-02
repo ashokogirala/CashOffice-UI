@@ -1,5 +1,3 @@
-// Bank Statement Posting - Allocation Module 
-
 import { Component, NgModule } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'; 
 
@@ -18,19 +16,16 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class BankPostingComponent {
 
-  bankStatementID = new FormControl('', Validators.required) ;
+  detailInput = new FormGroup({
+    branchCode: new FormControl('', Validators.required),
+    fromDate: new FormControl('2018-09-01', Validators.required),
+    toDate: new FormControl('2018-09-30', Validators.required)
+  });
 
-  clear(){
-    this.bankStatementID.reset() ;
-  } 
+  detailReport(){
+    console.table(this.detailInput.value) ;
 
-  exit(){
-    // Re-direct to app landing page
-    window.location.href = "http://localhost:4200/#/dashboard" ;
+    // form-processing code
   }
-
-  post(){}
-
-  search(x){}
 
 }

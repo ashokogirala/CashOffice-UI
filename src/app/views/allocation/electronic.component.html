@@ -1,5 +1,5 @@
 <!-- Electroninc Allocation - Allocation Module -->
-
+<!-- TO-DO: Report screen design -->
 <div class="animated fadeIn">
     <div class="row">
       <div class="col-lg-12">
@@ -16,7 +16,7 @@
                 <div class="col-lg-6">
                           
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Paypoint ID <span class="text-danger">*</span></label>
+                    <label class="col-md-4 col-form-label" >PAYPOINT ID</label>
                     <div class = "col-md-6">
                       <select class="form-control" id="selectBrCode" 
                         formControlName = "paypointID" [disabled]="disableForm">
@@ -26,7 +26,7 @@
                   </div>
     
                    <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Credit Files <span class="text-danger">*</span></label>
+                    <label class="col-md-4 col-form-label" >CREDIT FILES</label>
                     <div class = "col-md-6">
                       <select class="form-control" id="selectCrFile" 
                         formControlName = "creditFile" [disabled]="disableForm">
@@ -36,9 +36,8 @@
                   </div>
                     
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Receipt No. <span class="text-danger">*</span></label>
+                    <label class="col-md-4 col-form-label" >RECEIPT No.</label>
                     <div class = "col-md-6">
-                      <small class="form-text text-danger">Receipt Number (Allocation Period)</small>
                       <select class="form-control" id="selectReceiptNo" formControlName = "receiptNo" [disabled] = "disableForm">
                         <option [ngValue]="receipt" *ngFor="let receipt of receipts">{{receipt.rctNo}}</option>
                       </select>
@@ -46,14 +45,14 @@
                   </div>
 
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Receipt Period</label>
+                    <label class="col-md-4 col-form-label" >RECEIPT PERIOD</label>
                     <div class = "col-md-6">
                       <input class="form-control" formControlName = "receiptPeriod" value={{electronicInput.value.receiptNo.rctPeriod}}>
                     </div>
                   </div>
                   
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Statement No. <span class="text-danger">*</span></label>
+                    <label class="col-md-4 col-form-label" >STATEMENT No.</label>
                     <div class = "col-md-6">
                       <select class="form-control" id="selectStmtNo" formControlName = "statementNo" [disabled]="disableForm">
                         <option [ngValue]="statement" *ngFor="let statement of statements">{{statement.stmtNo}}</option>
@@ -62,17 +61,17 @@
                   </div>
 
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Statement Period</label>
+                    <label class="col-md-4 col-form-label" >STATEMENT PERIOD</label>
                     <div class = "col-md-6">
                       <input class="form-control" formControlName = "statementPeriod" value={{electronicInput.value.statementNo.stmtPeriod}}>
                     </div>
                   </div>
 
                   <div class="form-group row">
-                     <label class="col-md-4 col-form-label">Allocated Period <span class="text-danger">*</span></label>
+                     <label class="col-md-4 col-form-label">ALLOCATED PERIOD</label>
                     <div class = "col-md-6">
                       <input class="form-control" id="date-input" type="date" 
-                       formControlName = "allocatedPeriod" name="date-input" value = "2018-09-30">
+                       formControlName = "allocatedPeriod" name="date-input" value = "2018-09-30" required>
                      </div>
                   </div>
 
@@ -82,7 +81,7 @@
                 <div class="col-lg-6">
                             
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Paypoint Name</label>
+                    <label class="col-md-4 col-form-label" >PAYPOINT NAME</label>
                     <div class = "col-md-6">
                       <input  class="form-control" id="disabled-input" type="text" 
                         formControlName = "paypointName" name="disabled-input" 
@@ -91,7 +90,7 @@
                   </div>
                               
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Credit File Amount</label>
+                    <label class="col-md-4 col-form-label" >CREDIT FILE AMOUNT</label>
                       <div class = "col-md-6">
                         <input class="form-control" formControlName = "creditFileAmount"
                           value = {{electronicInput.value.creditFile.crFileAmnt}}>
@@ -99,7 +98,7 @@
                   </div>
 
                   <div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Gross Amount</label>
+                    <label class="col-md-4 col-form-label" >GROSS AMOUNT (R)</label>
                     <div class = "col-md-6">
                       <input class="form-control" formControlName = "grossAmountReceipt"
                         value = {{electronicInput.value.receiptNo.rctAmnt}}>
@@ -110,7 +109,7 @@
                   <br>
 
                   <p><div class = "form-group row">
-                    <label class="col-md-4 col-form-label" >Gross Amount</label>
+                    <label class="col-md-4 col-form-label" >GROSS AMOUNT (S)</label>
                       <div class = "col-md-6">
                         <input class="form-control" formControlName = "grossAmountStatement"
                           value = {{electronicInput.value.statementNo.stmtAmnt}}>
@@ -161,32 +160,32 @@
 
             <div class="col-lg-6">
               <div class="row">
-                <p class="col-lg-4 font-weight-bold">Bank Account</p>
+                <p class="col-lg-4 font-weight-bold">BANK ACCOUNT: </p>
                 <p class="col-lg-6">{{bankStatement.bankAccNo}}</p>
               </div>
 
               <div class="row">
-                <p class="col-lg-4 font-weight-bold">Bank Statement ID</p>
+                <p class="col-lg-4 font-weight-bold">BANK STATEMENT ID: </p>
                 <p class="col-lg-6">{{bankStatement.bankStmID}}</p>
               </div>
 
               <div class="row">
-                <p class="col-lg-4 font-weight-bold">Statement No.</p>
+                <p class="col-lg-4 font-weight-bold">STATEMENT No.: </p>
                 <p class="col-lg-6">{{bankStatement.stmtNo}}</p>
               </div>
 
               <div class="row">
-                <p class="col-lg-4 font-weight-bold">Date From</p>
+                <p class="col-lg-4 font-weight-bold">DATE FROM: </p>
                 <p class="col-lg-6">{{bankStatement.fromDate}}</p>
               </div>
 
               <div class="row">
-                <p class="col-lg-4 font-weight-bold">Date To</p>
+                <p class="col-lg-4 font-weight-bold">DATE TO: </p>
                 <p class="col-lg-6">{{bankStatement.toDate}}</p>
               </div>
 
               <div class="row">
-                <p class="col-lg-4 font-weight-bold">Opening Balance</p>
+                <p class="col-lg-4 font-weight-bold">OPENING BALANCE: </p>
                 <p class="col-lg-6">{{bankStatement.openingBalance}}</p>
               </div>
               
@@ -194,27 +193,27 @@
 
             <div class="col-lg-6">
                 <div class="row">
-                    <p class="col-lg-4 font-weight-bold">Bank Name</p>
+                    <p class="col-lg-4 font-weight-bold">BANK NAME: </p>
                     <p class="col-lg-6">{{bankStatement.bankName}}</p>
                   </div>
                   <div class="row">
-                      <p class="col-lg-4 font-weight-bold">Input Date</p>
+                      <p class="col-lg-4 font-weight-bold">INPUT DATE: </p>
                       <p class="col-lg-6">{{bankStatement.inputDate}}</p>
                     </div>
                     <div class="row">
-                        <p class="col-lg-4 font-weight-bold">Cashier Code</p>
+                        <p class="col-lg-4 font-weight-bold">CASHIER: CODE</p>
                         <p class="col-lg-6">{{bankStatement.cashierCode}}</p>
                       </div>
 
                       <div class="row">
-                        <p class="col-lg-4 font-weight-bold">Cashier Name</p>
+                        <p class="col-lg-4 font-weight-bold">CASHIER NAME: </p>
                         <p class="col-lg-6">{{bankStatement.cashierName}}</p>
                       </div>
 
                       <br> 
 
                       <div class="row">
-                        <p class="col-lg-4 font-weight-bold">Closing Balance</p>
+                        <p class="col-lg-4 font-weight-bold">CLOSING BALANCE: </p>
                         <p class="col-lg-6">{{bankStatement.closingBalance}}</p>
                       </div>
             </div>
@@ -227,11 +226,11 @@
               <table class="table table-bordered table-hover">
                 <thead class="thead-light">
                   <tr>
-                    <th>Transaction Description</th>
-                    <th>Policy Number</th>
-                    <th>POLICY Payer</th>
-                    <th>Pay Mode</th>
-                    <th>Amount</th>
+                    <th>TRANSACTION DESCRIPTION</th>
+                    <th>POLICY NUMBER</th>
+                    <th>POLICY PAYER</th>
+                    <th>PAY MODE</th>
+                    <th>AMOUNT</th>
                   </tr>
                 </thead>
                 
@@ -275,4 +274,4 @@
     </div>
   </div>
 
-</div>
+  </div>
